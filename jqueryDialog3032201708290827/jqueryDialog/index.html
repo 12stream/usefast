@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="jquery.dialog.js"></script>
+<link rel="stylesheet" type="text/css" href="dialog.css">
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#alert-default").click(function(){
+		$.dialog.alert({content:"这是普通提示信息"});
+	});
+	$("#alert-nomask").click(function(){
+		$.dialog.alert({content:"这是没有遮罩的提示信息",mask:false});
+	});
+	$("#confim-default").click(function(){
+		$.dialog.confirm({content:"你确定要删除吗",callback:"callback();"});
+	});
+	$("#load-default").click(function(){
+		$.dialog.load({url:"load.html",data:{xxx:123}});	//若data传入数组，先将数组转化为JSON格式
+	});
+});
+function callback(){
+	alert('这是回调函数');
+}
+</script>
+<style type="text/css">
+body{margin:0;}
+</style>
+</head>
+<body>
+	<input type="button" id="alert-default" value="alert默认" />
+	<input type="button" id="alert-nomask" value="alert无遮罩" />
+	<input type="button" id="confim-default" value="confim默认" />
+	<input type="button" id="load-default" value="load默认" />
+	<br /><br />
+	<input type="button" value="alert默认(第二种调用)" onclick="$.dialog.alert({content:'这是普通提示信息'});" />
+</body>
+</html>

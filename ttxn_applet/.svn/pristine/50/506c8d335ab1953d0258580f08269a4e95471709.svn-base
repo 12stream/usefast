@@ -1,0 +1,37 @@
+<view hidden="{{!hide}}">
+    <image class="banner" src="https://ttxuenong.oss-cn-shenzhen.aliyuncs.com/static/img/applet/ac1-banner1.png"></image>
+
+    <view class="x-h1 pb20">
+        <div class="x-d">
+            <span class="x-h1-x mr24"></span>
+            选择您的职业
+            <span class="x-h1-x ml24"></span>
+        </div>
+    </view>
+
+    <view class="ac-xz-zy">
+        <div wx:for="{{list}}" class="ac-cell">
+            <navigator  url="../activity2/activity2?id={{item.value}}">
+                <image wx:if="{{item.name!='其他'}}"class="ac-img" src="{{item.img}}"></image>
+                <div wx:else class="ac-img ac-img-qt">其他</div>
+                {{item.name}}
+            </navigator>
+        </div>
+        <!--<div class="ac-cell">-->
+        <!--<navigator url="../activity2/activity2?id=other_0">-->
+
+        <!--其他-->
+        <!--</navigator>-->
+        <!--</div>-->
+    </view>
+
+    <!--<view class="ac-xz-zy">-->
+    <!--<div class="ac-cell">-->
+    <!--<navigator url="../activity2/activity2">-->
+    <!--<image class="ac-img" src="../../../assets/images/bg.jpeg"></image>-->
+    <!--农业研究员-->
+    <!--</navigator>-->
+    <!--</div>-->
+
+    <!--</view>-->
+</view>

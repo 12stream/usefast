@@ -1,0 +1,52 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/deatil/emptyComment/emptyComment",
+        "pages/list/courseList/courseList",
+        "pages/deatil/courseDetails/courseDetails",
+        "pages/deatil/playAudio/playAudio",
+        "pages/my/my/my",
+        "pages/my/purchaseContent/purchaseContent",
+        "pages/my/myinfo/myinfo",
+        "pages/my/collect/collect",
+        "pages/my/feedback/feedback",
+        "pages/my/studiedCourse/studiedCourse",
+        "pages/listen/voluntaryListening2/voluntaryListening2",
+        "pages/my/modifyPhone/modifyPhone",
+        "pages/list/informationList/informationList",
+        "pages/my/learningRecord/learningRecord",
+        "pages/activity/activity4/activity4",
+        "pages/activity/activity3/activity3",
+        "pages/activity/activity2/activity2",
+        "pages/activity/activity/activity",
+        "pages/deatil/tearcherInfo/tearcherInfo"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "天天学农",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": false
+    },
+    "tabBar": {
+        "borderStyle": "black",
+        "color": "#999",
+        "selectedColor": "#ff6704",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "选课",
+                "iconPath": "assets/images/study.png",
+                "selectedIconPath": "assets/images/study-selected.png"
+            },
+            {
+                "pagePath": "pages/my/my/my",
+                "text": "我的",
+                "iconPath": "assets/images/my.png",
+                "selectedIconPath": "assets/images/my-selected.png"
+            }
+        ]
+    },
+    "debug": false
+}

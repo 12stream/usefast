@@ -1,0 +1,157 @@
+<!--&lt;!&ndash;<view class="page-section page-section-gap">&ndash;&gt;-->
+<!--&lt;!&ndash;<view class="page-section-title">slider</view>&ndash;&gt;-->
+<!--<slider  activeColor="#ff4c3a" backgroundColor="#ccc" value="{{percent}}"/>-->
+<!--<slider class="slider" value="{{percent}}" max="{{audioMaxTime}}" show-value name="slider" bindchange="sliderchange"></slider>-->
+<!--&lt;!&ndash;</view>&ndash;&gt;-->
+
+<!--<view class="btn">-->
+<!--正在播放11/20-->
+<!--</view>-->
+<!--<view class="btn">-->
+<!--课程图片-->
+<!--</view>-->
+<!--<view class="btn">-->
+<!--主标题-->
+<!--</view>-->
+
+<!--<view class="btn">-->
+<!--进度条-->
+<!--</view>-->
+<!--<view class="btn">-->
+<!--时间-->
+<!--</view>-->
+
+<!--<view class="btn">-->
+<!--列表-->
+<!--</view>-->
+<!--<view class="btn" bindtap="lastPlay">-->
+<!--上-->
+<!--</view>-->
+<!--<view class="btn" bindtap="playAudioBtn">-->
+<!--播放-->
+<!--</view>-->
+<!--<view class="btn" bindtap="nextPlay">-->
+<!--下-->
+<!--</view>-->
+<!--<view class="btn" bindtap="btn">-->
+<!--播放记录-->
+<!--</view>-->
+
+
+<!--<view class="btn">喜欢</view>-->
+<!--<button  class="btn btn2" open-type="share">分享</button>-->
+
+<audio  src="{{mp3}}" id="myAudio" ></audio>
+
+<view class="pa-p-num">
+    正在播放{{audioNumber+1}}/{{audioLength}}
+</view>
+
+<view class="pa-img-box">
+    <view class="pa-img-bg">
+        <image class="pa-img" mode="aspectFit" src="{{lImg}}">
+
+        </image>
+    </view>
+</view>
+
+<view class="pa-title">
+    {{title}}
+</view>
+<slider class="slider" activeColor="#ff6704" backgroundColor="e5e5e5"  value="{{percent}}" max="{{audioMaxTime}}"  name="slider" bindchange="sliderchange"></slider>
+
+<view class="pa-time-box">
+    <view>{{percentText? percentText:''}}</view>
+    <view>{{audioMaxTimeText ? audioMaxTimeText:''}}</view>
+</view>
+
+<view class="pa-btn-box">
+    <view class="pa-btn1" bindtap="playlistBtn" style="padding-left:55rpx;padding-right: 20rpx;"><i class="iconfont icon-bofangliebiao "></i></view>
+    <view class="pa-btn2 {{audioNumber==0 ? 'pa-huise':''}}" bindtap="lastPlay" style="padding-left:60rpx;"><i class="iconfont icon-shangyige "></i></view>
+    <view class="pa-btn3" wx:if="{{audioSign}}" bindtap="stopAudioBtn" ><i class="iconfont icon-zanting"></i></view>
+    <view class="pa-btn3" wx:else  bindtap="playAudioBtn" ><i  class="iconfont icon-bofang" style="color:#ff6704"></i></view>
+    <view class="pa-btn4 {{audioNumber==(audioLength-1) ? 'pa-huise':''}}" bindtap="nextPlay" style="padding-right:60rpx;"><i class="iconfont icon-xiayige "></i></view>
+    <view class="pa-btn5" bindtap="playRecorOpen" style="padding-right:55rpx;padding-left:20rpx;"><i class="iconfont icon-bofanglishi " ></i></view>
+</view>
+
+<view style="height:108rpx;"></view>
+
+<view class="pa-foot-box">
+    <navigator  class="pa-f-xh " url="../emptyComment/emptyComment?subjectId={{subjectId}}&isEmpty={{plNum}}">
+        <view >
+            <i class="db iconfont f42 icon-pinglun g6"></i>
+            <div class="db f24">评论</div>
+            <view class="pa-f-xh-pls" hidden="{{!plNum}}">{{plNum}}</view>
+        </view>
+    </navigator >
+    <!--<view wx:for="{{audioList}}" wx:key="item"  class="pa-f-xh {{audioNumber==index ? '' :'x-hide-i'}}" id="{{index}}"  data-subjectid="{{audioList[index].id}}"  bindtap="liveBtn">-->
+        <!--<view >-->
+            <!--<i class="db iconfont f42 {{audioList[index].msg=='课程已收藏' ? 'icon-yixihuan':' icon-xihuan'}} "></i>-->
+            <!--&lt;!&ndash;<div class="db f24">{{audioList[index].sumCount ? audioList[index].sumCount :"收藏" }}</div>&ndash;&gt;-->
+            <!--<div class="db f24">{{audioList[index].audio_msg=='音频已收藏' ? "已收藏" :"收藏" }}</div>-->
+        <!--</view>-->
+    <!--</view>-->
+    <view class="pa-f-xh " id="{{index}}"  data-subjectid="{{subjectId}}"  bindtap="liveBtn">
+        <view >
+            <i class="db iconfont f42  g6 {{msg=='课程已收藏' ? 'icon-yixihuan':' icon-xihuan'}} "></i>
+            <div class="db f24">{{msg=='课程已收藏' ? "已收藏" :"收藏" }}</div>
+        </view>
+    </view>
+    <!--<view wx:for="{{audioList}}" wx:key="item"  class="pa-f-xh {{audioNumber==-1 ? '' :'x-hide-i'}}" id="{{index}}"  data-audioId="{{audioList[index].infoId}}"  bindtap="liveBtn">-->
+        <!--<view >-->
+            <!--<i class="db iconfont {{audioList[index].audio_msg=='音频已收藏' ? 'icon-yixihuan':' icon-xihuan'}} "></i>-->
+            <!--<div class="db f24">{{audioList[index].sumCount ? audioList[index].sumCount :"收藏" }}</div>-->
+        <!--</view>-->
+    <!--</view>-->
+    <button id="fenx" class="pa-f-fx" open-type="share">
+        <div>
+            <i class="db f42 iconfont icon-fenxiang g6"></i>
+            <div class="db f24">分享</div>
+        </div>
+    </button>
+</view>
+
+<view class="pa-alert-m" hidden="{{!playlistColse}}" bindtap="playlistColse"></view>
+<view class="pa-alert-box" hidden="{{!playlistColse}}">
+    <view class="pa-a-title">播放列表</view>
+    <view class="pa-a-list-box">
+        <view wx:for="{{audioList}}" wx:key="item" class="pa-a-list"  >
+            <view class="x-slh pa-a-list-text {{audioNumber==index ? 'primary': ''}}" id="{{index}}" bindtap="playAudioListBtn">{{item.title}}</view>
+            <!--<view>-->
+                <!--<i class="iconfont {{audioNumber==index ? '': 'x-vhide'}} icon-bofangzhong mr40 ml32"></i>-->
+                <!--<i class="iconfont icon-xihuan {{audioList[index].audio_msg=='音频已收藏' ? 'icon-yixihuan':' icon-xihuan'}}"  id="{{index}}"  data-audioId="{{audioList[index].infoId}}"  bindtap="liveBtn"></i>-->
+            <!--</view>-->
+        </view>
+    </view>
+</view>
+<view class="pa-alert-colse" hidden="{{!playlistColse}}" bindtap="playlistColse">关闭</view>
+
+<!--播放记录-->
+<view class="pa-alert-m" hidden="{{!playRecorColse}}" bindtap="playlistColse"></view>
+<view class="pa-alert-box" hidden="{{!playRecorColse}}">
+    <view class="pa-a-title">播放记录</view>
+    <view class="pa-br-box">
+    <view class="pa-br-list" wx:for="{{PlayRecordList}}" wx:key="item"  id="{{index}}" data-isexist="{{PlayRecordList[index].isExist}}" data-subjectId="{{PlayRecordList[index].subject_id}}" data-audioId="{{PlayRecordList[index].audio_id}}" bindtap="playRecordAudio">
+     <!--<image class="pa-br-list-img" src="{{PlayRecordList[index].s_img}}">-->
+
+     <!--</image>-->
+        <view class="pa-br-list-img iconfont icon-bofang"></view>
+     <view class="pa-br-list-text">
+         <view class="x-slh n">{{PlayRecordList[index].title}}</view>
+         <view class="pa-br-list-time n">
+             <view>{{PlayRecordList[index].play_date}}</view>
+             <view>已收听{{item.play_duration}}%</view>
+
+         </view>
+     </view>
+
+ </view>
+    </view>
+</view>
+<view class="pa-alert-colse" hidden="{{!playRecorColse}}" bindtap="playRecorColse">关闭</view>
+<view  class="x-tip-box" hidden="{{!tip}}" style="z-index: 10000">
+    <view class="x-tip">
+        该音频已下架
+    </view>
+</view>
+

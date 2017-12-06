@@ -1,0 +1,9 @@
+/* pages/blex/blex.wxss */
+.blue{
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  background: #f60;
+  color: #fff;
+}

@@ -1,0 +1,23 @@
+<!--modifyPhone.wxml-->
+<view class="modi-box">
+    <view class="modi-list">
+        <label>手机号：</label>
+        <view class="modi-rt"><input type="number" maxlength="11" placeholder-style="color:#999" placeholder="请填写您的手机号" bindinput="setPhone" /></view>
+    </view>
+    <view class="modi-list modi-none">
+        <label>验证码：</label>
+        <view class="modi-rt"><input type="number" placeholder-style="color:#999" placeholder="请输入短信验证码" bindinput="setTelcode" /></view>
+        <view class='getcode' bindtap="getCode">
+            <text wx:if="{{time==60}}">获取验证码</text>
+            <text wx:else>{{time}}s后重发</text>
+        </view>
+    </view>
+</view>
+    <view class="btn-area">
+       <button bindtap="submitModi" class="submit-modi"> 提交 </button> 
+    </view>
+
+
+
+
+

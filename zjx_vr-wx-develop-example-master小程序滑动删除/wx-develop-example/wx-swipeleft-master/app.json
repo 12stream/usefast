@@ -1,0 +1,32 @@
+{
+  "pages":[
+    "pages/stock/stock",
+    "pages/index/index",
+    "pages/nav/nav",
+    "pages/scancode/scancode"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+        "pagePath": "pages/stock/stock",
+        "text": "stock"
+      },
+      {
+      "pagePath": "pages/index/index",
+      "text": "index"
+    },
+    {
+      "pagePath": "pages/scancode/scancode",
+      "text": "scancode"
+    },
+    {
+      "pagePath": "pages/nav/nav",
+      "text": "text"
+    }]
+  }
+}

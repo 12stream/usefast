@@ -1,0 +1,19 @@
+<import src="../../common/player.wxml" />
+<view class="listen-box" style="padding-bottom: {{paddBott}};">
+    <view class="h1">学农推荐</view>
+    <view class="p1">请选择你想收听的时长</view>
+    <navigator url="../voluntaryListening2/voluntaryListening2?id=30" class="listen-li">
+        <view class="list-min"><text class="iconfont icon-icon-test1"></text><label class="list-num">分钟</label></view>
+        <label class="list-right-jt"></label>
+    </navigator>
+    <navigator url="../voluntaryListening2/voluntaryListening2?id=60" class="listen-li">
+        <view class="list-min"><text class="iconfont icon-icon-test2"></text><label class="list-num">分钟</label></view>
+        <label class="list-right-jt"></label>
+    </navigator>
+    <navigator url="../voluntaryListening2/voluntaryListening2?id=120" class="listen-li">
+        <view class="list-min"><text class="iconfont icon-icon-test3"></text><label class="list-num">小时</label></view>
+        <label class="list-right-jt"></label>
+    </navigator>
+</view>
+
+<template is="player" data="{{...item}}"/>

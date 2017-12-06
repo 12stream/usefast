@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/scanble/scanble",
+    "pages/pull/pull",
+    "pages/conn/conn",
+    "pages/blex/blex"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black",
+    "onReachBottomDistance":50
+  },
+  "tabBar": {
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+      "text": "主页"
+    },
+    {
+      "pagePath": "pages/pull/pull",
+      "text": "加载"
+    },
+    {
+      "pagePath": "pages/blex/blex",
+      "text": "蓝牙"
+    },
+    {
+      "pagePath": "pages/logs/logs",
+      "text": "练习页"
+    }
+    ],
+    "color": "#000000",
+    "selectedColor": "#f60"
+  }
+}

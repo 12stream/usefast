@@ -1,0 +1,17 @@
+.x-input{
+    display: inline-block;
+    line-height: 88rpx;
+    height: 88rpx;
+    width: 648rpx;
+    text-align: center;
+    border-radius: 5rpx;
+    font-size:34rpx;
+    border:1px solid #e5e5e5;
+    background-color: #fff;
+
+    color:#333;
+}
+.x-input:focus{
+    text-align: left;
+    border:1px solid red;
+}

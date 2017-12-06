@@ -1,0 +1,3 @@
+<!--pages/blex/blex.wxml-->
+<view class='blue' bindtap='time'>蓝牙</view>
+{{s}}

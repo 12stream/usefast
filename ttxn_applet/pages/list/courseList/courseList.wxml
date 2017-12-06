@@ -1,0 +1,39 @@
+<!--<loading hidden="{{loadingHidden}}">-->
+<!--加载中...-->
+<!--</loading>-->
+<view class="cl-con-box">
+
+    <navigator wx:for="{{list}}" wx:key="unique" class="grid cl-con" url="../../deatil/courseDetails/courseDetails?subjectId={{item.id}}">
+        <div class="cl-c1">
+            <image class="cl-img" src="{{item.s_img}}"></image>
+        </div>
+        <div class="cl-c2">
+            <div class="db g3 f34 b x-slh">{{item.l_title}}</div>
+            <div class="db g6 ptpt1416 f28 x-slh mt-8">{{item.s_title}}</div>
+            <div class=""> <label class="iconfont icon-bofang" style="font-size:22rpx;"></label> {{item.times&&item.times!='null' ? item.times : 0}}次学习 {{item.subjects ?item.subjects:0}}节课/时长：{{item.duration ? item.duration:0}}
+            </div>
+            <div class="db pt14">
+
+                <block wx:if="{{!item.isBuy}}">
+                    <view wx:if="{{!item.current_price}}">
+                   <span class="f30 primary b">免费</span>
+                    </view>
+                    <view wx:else>
+                        <!-- <span class="x-scx pr8">￥{{item.original_price}}</span> -->
+                        <span class="f30 primary b">￥{{item.current_price}}</span>
+                    </view>
+                </block>
+                <block wx:if="{{item.isBuy}}">
+                    已购买
+                </block>
+
+            </div>
+        </div>
+    </navigator>
+</view>
+
+<view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+</view>
+<view class="complete" hidden="{{showMore}}">加载完了</view>

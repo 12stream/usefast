@@ -1,0 +1,31 @@
+<import src="../../common/player.wxml" />
+<view class="x-cont" style="padding-bottom:{{paddBott}}">
+    <view>
+        <image class="il-img" src="{{img}}"></image>
+    </view>
+    <view class="cont1">
+        <view class="item1" bindtap="playAllBtn">
+            <div class="iconfont  icon-bofang1 ico2"></div>
+            <span class="g3 f34 b ">播放全部 </span>
+            <span class="f28 g9 pl32 cont1-d2">已更新{{totalRow ? totalRow : 0}}条</span>
+            <!--<span class="dx f28 g6 cont1-d1">倒序</span>-->
+        </view>
+    </view>
+    <view wx:for="{{list}}"  wx:key="item" data-sign="{{index}}" class="x-list-box {{sign==index ? 'active':''}} {{item.id == playId ? 'active': ''}}" data-img="{{item.img}}" data-ti="{{item.title}}" data-url="{{item.url}}" data-id="{{item.id}}" bindtap="playAudio">
+            <div class="x-list-ico iconfont icon-bofang"></div>
+            <div class="x-list-text">
+                <div class="db x-slh x-list-title">{{item.title ? item.title : '- -'}}</div>
+                <div class="x-list-time">
+                    <div class="x-list-t-t1 ">{{item.up_time ? item.up_time : 0}} <span class="pl32">{{item.playSj ? item.playSj : 0}}</span></div>
+                    <!--<div class="x-list-t-t2">已播完</div>-->
+                </div>
+            </div>
+    </view>
+    <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+
+    <view class="complete" hidden="{{showMore}}">加载完了</view>
+</view>
+<template is="player" data="{{...item}}"/>

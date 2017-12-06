@@ -1,0 +1,42 @@
+@import "../../common/player.wxss";
+page{
+    background-color: #ff6704;
+}
+.bac-wh{
+    background-color: #fff;
+}
+.vl-con{
+    padding-left: 32rpx;
+    padding-right: 32rpx;
+    padding-bottom: 0;
+}
+.vl-list{
+    height: 136rpx;
+    color:#fff;
+    background-color: rgba(255,255,255,0.3);
+    display: flex;
+    align-items:center;
+    margin-bottom: 16rpx;
+    border-radius: 8rpx;
+}
+.vl-img{
+    width: 120rpx;
+    height: 120rpx;
+    margin: 8rpx;
+}
+.vl-list-text{
+    overflow: hidden;
+    flex: 1;
+    padding-left: 8rpx;
+}
+
+.vl-list.active{
+    background-color: #fff;
+}
+.vl-list.active .t1{
+    color:#ff6704;
+}
+.vl-list.active .t2{
+    color:#999999;
+}
+.n{ font-weight:normal; }

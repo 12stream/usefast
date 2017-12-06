@@ -1,0 +1,97 @@
+.x-list-con {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.x-list-box {
+    display: flex;
+    align-items: center;
+    margin-left: 26rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+    background-color: #fff;
+    order: 1;
+    width: 100%;
+    height: 124rpx;
+}
+
+.x-list-ico {
+    /* margin-top: 27px; */
+    width: 56rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    border-radius: 100%;
+    border: 1rpx solid #ccc;
+    font-size: 22rpx;
+    color: #ccc;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    top: -0.5rpx;
+}
+
+.bf-many {
+    margin-left: 16rpx;
+}
+
+.x-list-text {
+    flex: 1;
+    color: #999;
+    font-size: 30rpx;
+    padding: 30rpx 32rpx 24rpx 0rpx;
+    overflow: hidden;
+}
+
+.x-list-time {
+    display: flex;
+    padding-top: 16rpx;
+}
+
+.x-list-t1 {
+    color: #333;
+    margin-top: 17rpx;
+}
+
+.x-list-t-t1 {
+    flex: 1;
+}
+
+.x-list-t-t2 {
+}
+
+.x-list-title {
+    color: #333;
+}
+
+.x-list-box.active .x-list-ico {
+    color: #ff6704;
+    border: 1rpx solid rgba(255, 103, 4, 0.3);
+    padding-left: 0;
+    text-align: center;
+}
+
+.x-list-box.active .x-list-title {
+    color: #ff6704;
+}
+
+.x-list-box.active .x-list-ico:before {
+    content: '';
+    display: inline-block;
+    width: 21rpx;
+    height: 24rpx;
+    background: url(https://ttxuenong.oss-cn-shenzhen.aliyuncs.com/static/img/applet/9c81a4b3ca7b4ab4a001c8c571d2c64e.gif) no-repeat;
+    background-size: contain;
+}
+
+.x-list-box.finish {
+    order: 0;
+}
+
+/*.x-list-box.finish .x-list-t1{*/
+
+/*color:#999;*/
+
+/*}*/
+
+.x-list-box.active  .x-list-t1 {
+    color: #ff6704;
+}

@@ -1,0 +1,4 @@
+/**my.wxss**/
+@import "../my/my.wxss";
+
+

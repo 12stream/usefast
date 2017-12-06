@@ -1,0 +1,58 @@
+/**/
+
+.x-h1 {
+    font-size: 34rpx;
+    color: #999;
+    text-align: center;
+    padding-top: 56rpx;
+    padding-bottom: 48rpx;
+    align-content: center;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.x-h1-ms {
+    font-size: 28rpx;
+    color: #999;
+}
+
+.x-h1-x {
+    width: 90rpx;
+    height: 1rpx;
+    background-color: #ccc;
+    display: inline-block;
+}
+
+.x-d {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*...*/
+
+.x-slh {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /*font-weight:bold;*/
+}
+
+.x-scx {
+    text-decoration: line-through;
+}
+
+/*盒子标题*/
+
+.x-b-title {
+    font-size: 34rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+    padding-left: 26rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    background-color: #fff;
+    margin-top: 24rpx;
+}

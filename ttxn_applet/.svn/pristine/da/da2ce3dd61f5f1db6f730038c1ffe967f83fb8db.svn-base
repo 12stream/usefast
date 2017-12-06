@@ -1,0 +1,8 @@
+<template name="tip">
+    <view  class="x-tip-box" hidden="{{!tip}}">
+        <view class="x-tip">
+            {{tipText}}
+        </view>
+    </view>
+</template>
+<!--hidden="{{!tip}}"-->

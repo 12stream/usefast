@@ -1,0 +1,14 @@
+.class_list{
+  background-color: #fff;
+  color: #000;
+}
+.class_item{
+  border-bottom: solid #f5f5f5 1px;
+  padding: 20px;
+}
+.class_item_end{
+  text-align: center;
+}
+page{
+  background-color: #f5f5f5;
+}

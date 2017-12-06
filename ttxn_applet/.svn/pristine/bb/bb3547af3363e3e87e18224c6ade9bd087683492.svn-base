@@ -1,0 +1,30 @@
+<import src="/assets/component/againLoading.wxml"/>
+<view class="x-empty"  hidden="{{!conEmpty}}">
+    <view class="x-empty-box">
+        <view class="iconfont icon-yixue-kong x-empty-box-i"></view>
+        <view class="w1 x-empty-box-t">
+            你没有学习任何课程，赶紧去学习吧
+        </view>
+    </view>
+</view>
+
+<view >
+<navigator wx:for="{{list}}"  wx:key="item" class="sc-boxL" url="../../deatil/courseDetails/courseDetails?subjectId={{item.id}}">
+    <view class="sc-box">
+        <image class="sc-img" src="{{item.s_img}}"></image>
+        <view class="sc-text">
+            <view class="sc-title x-slh">{{item.l_title}}</view>
+            <view class="sc-t2">{{item.name ? item.name : "   "}}</view>
+            <view class="sc-t3" wx:if="{{item.jd=='已学完'}}">已学完</view>
+            <view class="sc-t3" wx:else>已学{{item.jd}}%</view>
+        </view>
+
+    </view>
+</navigator>
+</view>
+<template is="againLoading" data="{{...againLoading}}"></template>
+
+
+
+
+

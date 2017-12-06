@@ -1,0 +1,17 @@
+<!--pages/nav/nav.wxml-->
+<view class="container">
+ <view class='msg-item' wx:for="{{msgList}}" wx:key="id"  class='msg-item' animation='{{item.wrapAnimation}}'> 
+    <view id='{{item.id}}' class='msg' animation='{{item.animation}}' bindtouchstart='ontouchstart' bindtouchmove='ontouchmove' bindtouchend='ontouchend'>
+        <image class='header-img' src="../../res/img/head.png" ></image>
+        <text class='user-name'>张三</text>
+        <text class='msg-text'>开始</text>
+    </view>
+    <view class='msg-menu'>
+    {{item[0].id}}
+        <view  id='{{item.id}}' class='menu-delete' bindtap='onDeleteMsgTap' bindlongtap='onDeleteMsgLongtap'>
+            删除
+            
+        </view>
+    </view>
+</view>
+</view>

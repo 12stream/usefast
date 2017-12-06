@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>弹出框美化 By袁小溅</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<link href="css/style.css" rel="stylesheet" />
+		<style>
+			.alert {
+				width: 90%;
+				text-align: center;
+				color: #fff;
+				margin: 10px auto;
+				border-radius: 5px;
+				line-height: 30px;
+				cursor: pointer;
+				background: #4ab819;
+			}
+			
+			.confirm {
+				background: #196fb8;
+			}
+			
+			.open {
+				background: #f88408;
+			}
+			
+			.toast {
+				background: #f80851;
+			}
+			
+			.later {
+				background: #a9a9a9;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="alert" onclick="mizhu.alert('alert_带标题', '这是alert效果');">alert_带标题</div>
+		<div class="alert" onclick="mizhu.alert('', '这是alert效果','alert_red');">alert_带图标</div>
+		<div class="alert" onclick="mizhu.alert('alert_带标题带图标', '这是alert效果','alert_green');">alert_带标题带图标</div>
+		<div class="alert" onclick="mizhu.alert('', '这是alert效果');">alert_无标题无图标</div>
+		<!--=============================================================================================================-->
+		<div class="alert confirm" onclick="_confirm1()">confirm_无标题</div>
+		<div class="alert confirm" onclick="_confirm2()">confirm_带标题</div>
+		<!--=============================================================================================================-->
+		<div class="alert open" onclick="mizhu.open(600, 400, '新浪微博', 'http://weibo.com/yuanyuanforlove');">open</div>
+		<!--=============================================================================================================-->
+		<div class="alert toast" onclick="mizhu.toast('已取消关注');">toast_默认3秒消失</div>
+		<div class="alert toast" onclick="mizhu.toast('已取消关注', 6000);">toast_自定义时间(6秒)</div>
+		<!--=============================================================================================================-->
+		<div class="alert later">不定时更新</div>
+	</body>
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script src="js/ui.js"></script>
+	<script type="text/javascript">
+		function _confirm1() {
+			mizhu.confirm('', '是否要取消关注？', function(flag) {
+				if(flag) {
+					mizhu.alert('', '取消成功');
+				}
+			});
+		}
+		function _confirm2() {
+			mizhu.confirm('温馨提醒', '是否要取消关注？', function(flag) {
+				if(flag) {
+					mizhu.alert('', '取消成功');
+				}
+			});
+		}
+	</script>
+
+</html>

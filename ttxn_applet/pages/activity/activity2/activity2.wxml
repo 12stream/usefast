@@ -1,0 +1,47 @@
+<form bindsubmit="formSubmit" >
+<view class="body">
+    <image class="banner" src="https://ttxuenong.oss-cn-shenzhen.aliyuncs.com/static/img/applet/ac2-banner.png"></image>
+
+    <view class="x-h1">
+        <div class="x-d">
+            <span class="x-h1-x mr24"></span>
+            选择您关注的话题
+            <span class="x-h1-x ml24"></span>
+        </div>
+    </view>
+
+    <checkbox-group bindchange="Change" name="checkbox">
+    <view  class="grid  ac-con" >
+
+        <label wx:for="{{arr}}" wx:key="{{item}}" class="ac-cell {{item.select ? 'active' : ''}}" id="{{index}}" bindtap="choice">
+            <image wx:if="{{item.name!='其他'}}" class="ac-img" src="{{item.img}}"></image>
+            <div wx:else class="ac-img ac-img-qt">其它</div>
+            {{item.name}}
+            <div class="iconfont icon-duihao ac-cell-xz"></div>
+            <!--ac-hide-->
+            <checkbox class="ac-hide" name="xz" id="i{{index}}" value="{{item.value}}" checked="{{item.select ? true : false}}"/>
+        </label>
+
+    </view>
+
+    <view class="x-h1">
+        <div class="x-d">
+            <span class="x-h1-x mr24"></span>
+            您的手机号码
+            <span class="x-h1-x ml24"></span>
+        </div>
+    </view>
+
+    <view class="grid f-tc mb80">
+        <input class="x-input" name="phone" type="number" bindblur="phone" placeholder="请输入您的手机号码"  />
+    </view>
+    </checkbox-group>
+    <view class="grid f-tc">
+        <!--<navigator url="../activity3/activity3">-->
+            <button formType="submit" class="x-btn b" catchtap="next">
+                下一步
+            </button>
+        <!--</navigator>-->
+    </view>
+</view>
+</form>
