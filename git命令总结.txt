@@ -1,0 +1,218 @@
+开始时先注册 
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"(git config命令的--global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址)
+初始化一个仓库 git init  把这个目录变成Git可以管理的仓库：
+1、pwd命令用于显示当前目录
+2、ls -ah命令查看.git隐藏目录
+3、git add 文件（readme.txt）    命令告诉git把该文件添加到仓库
+4、git commit（$ git commit -m "wrote a readme file"）告诉Git，把文件提交到仓库（-m后面输入的是本次提交的说明）
+5、git status命令可以让我们时刻掌握仓库当前的状态
+6、git diff readme.txt 查看文件具体修改了什么内容（查看修改内容为未提交到仓库时的修改）
+7、git log 命令查看历史记录（每次都改了的内容）
+8、git log --pretty=oneline（看到的一大串类似3628164...882e1e0的是commit id（版本号），简化查询的信息）
+9、git reset --hard HEAD^     把当前版本回退到上一个版本
+10、q键为结束当前命令
+11、cat readme.txt 查看回退后版本的内容详情
+12、 git reset --hard 3628164（上一个版本的commit id），这样可以返回到我们没有回退前的那个版本（版本号没必要写全，前几位就可以了，Git会自动去找）
+13、git reflog用来记录你的每一次命令（现在，你回退到了某个版本，关掉了电脑，第二天早上就后悔了，想恢复到新版本怎么办？利用commit id，你又可以乘坐时光机回到未来了）
+14、git checkout -- file可以丢弃工作区的修改（意思就是，把file文件在工作区的修改全部撤销,命令中的--很重要，没有--，就变成了“切换到另一个分支”的命令）
+15、git reset HEAD readme.txt命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。（文件提交到暂存区时可以用此命令回退到工作区）。
+假设你不但改错了东西，还从暂存区提交到了版本库，怎么办呢？还记得版本回退吗？可以回退到上一个版本。不过，这是有条件的，就是你还没有把自己的本地版本库推送到远程。
+16、rm test.txt 命令为删除文件（也可在文件管理器中删除）假如你有文件不小心commit到了服务器那么你想要删除它,可以使用: git rm -- cached "路径+文件名" 然后git commit -m "delete file"  之后git push
+17、git rm删掉，并且git commit文件就从版本库中删除了
+18、git checkout -- test.txt把误删的文件恢复到最新版本（git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。只要版本库里有，
+命令git rm用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。）
+19、git config --list 查看当前配置, 在当前项目下面查看的配置是全局配置+当前项目的配置, 使用的时候会优先使用当前项目的配置
+20、远程仓库（Git仓库和GitHub仓库之间的传输是通过SSH加密的）
+
+①创建SSH Key
+$ ssh-keygen -t rsa -C "youremail@example.com"(一路回车，由于这个Key也不是用于军事目的，所以也无需设置密码。)
+完成后可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人
+②登陆GitHub，打开“Account settings”，“SSH Keys”页面：
+然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容：
+点“Add Key”，你就应该看到已经添加的Key：（在GitHub上免费托管的Git仓库，任何人都可以看到喔（但只有你自己才能改）。所以，不要把敏感信息放进去）
+③添加远程库，登陆GitHub，然后，在右上角找到“Create a new repo”按钮，创建一个新的仓库：GitHub告诉我们，可以从这个仓库克隆出新的仓库，也可以把一个已有的本地仓库与之关联，然后，把本地仓库的内容推送到GitHub仓库
+我们根据GitHub的提示，在本地的learngit仓库下运行命令：
+$ git remote add origin git@github.com:12stream/newdemo.git（在GitHub上有）
+添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。
+④下一步，就可以把本地库的所有内容推送到远程库上：
+$ git push -u origin master（把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。由于远程库是空的，我们第一次推送master分支时，加上了-u参数，
+Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。）
+推送成功后，可以立刻在GitHub页面中看到远程库的内容已经和本地一模一样：
+21、git remote -v(查看连接的状态，要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git，关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；)
+22、从远程库克隆
+登陆GitHub，创建一个新的仓库，名字叫gitskills
+我们勾选Initialize this repository with a README，这样GitHub会自动为我们创建一个README.md文件。创建完毕后，可以看到README.md文件：
+git clone（$ git clone git@github.com:michaelliao/gitskills.git）克隆一个本地库，然后进入gitskills目录看看，已经有README.md文件了。
+23、ls 查看目录下的文件（GitHub给出的地址不止一个，还可以用https://github.com/michaelliao/gitskills.git这样的地址，实际上，Git支持多种协议，默认的git://使用ssh，但也可以使用https等其他协议）
+使用https除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用ssh协议而只能用https。
+24、分支管理
+分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。
+
+现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。
+在版本回退里，我们知道，每次提交，Git都把它们串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在Git里，这个分支叫主分支，即master分支。HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。
+
+一开始的时候，master分支是一条线，Git用master指向最新的提交，再用HEAD指向master，就能确定当前分支，以及当前分支的提交点：
+25、git checkout -b dev（创建dev分支，然后切换到dev分支）
+-b参数表示创建并切换，相当于以下两条命令：
+$ git branch dev
+$ git checkout dev
+26、git branch 命令查看当前分支（git branch命令会列出所有分支，当前分支前面会标一个*号。）
+然后，我们就可以在dev分支上正常提交
+$ git add readme.txt 
+$ git commit -m "branch test"
+dev分支的工作完成，我们就可以切换回master分支：
+$ git checkout master
+切换回master分支后，再查看一个readme.txt文件，刚才添加的内容不见了！因为那个提交是在dev分支上，而master分支此刻的提交点并没有变：
+现在，我们把dev分支的工作成果合并到master分支上：
+$ git merge dev
+git merge命令用于合并指定分支到当前分支。合并后，再查看readme.txt的内容，就可以看到，和dev分支的最新提交是完全一样的。
+
+注意到上面的Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。
+合并完成后，就可以放心地删除dev分支了：
+$ git branch -d dev
+删除后，查看branch，就只剩下master分支了：
+$ git branch
+因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在master分支上工作效果是一样的，但过程更安全。
+（
+查看分支：git branch
+
+创建分支：git branch <name>
+
+切换分支：git checkout <name>
+
+创建+切换分支：git checkout -b <name>
+
+合并某分支到当前分支：git merge <name>
+
+删除分支：git branch -d <name>
+）
+
+
+27、当有多个分支的情况下，同一个文件修改了不同的内容会导致分支的内容冲突，合并分支的时候会报冲突错误，这时可以查看git status 内容，并对当前分支做修改。
+28、git merge --no-ff -m "merge with no-ff" dev（--no-ff参数，表示禁用Fast forward，，，本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去）
+合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
+29、git stash（stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：）
+30、git stash list（查看刚才的工作现场存放情况）
+31、git stash apply（恢复“储藏”的工作区，，此恢复stash内容并不删除，你需要用git stash drop来删除），另一种方式是用git stash pop，恢复的同时把stash内容也删了：
+32、git stash apply stash@{0}（恢复指定的stash）
+修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；
+
+当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场。
+33、git branch -D feature-vulcan（强行删除分支，feature-vulcan为要删除的分支）
+34、git remote（查看远程库的信息，或者，用git remote -v显示更详细的信息）
+35、git push origin master把该分支上的所有本地提交推送到远程库（如果要推送其他分支，比如dev，就改成：git push origin dev）
+36、git pull（把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送）
+37、git branch --set-upstream dev origin/dev（git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：）再pull
+(这回git pull成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的解决冲突完全一样。解决后，提交，再push：)
+小结：
+
+
+    查看远程库信息，使用git remote -v；
+
+    本地新建的分支如果不推送到远程，对其他人就是不可见的；
+
+    从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+
+    在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+
+    建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+
+    从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
+38、在Git中打标签非常简单，首先，切换到需要打标签的分支上：
+
+$ git branch
+* dev
+  master
+$ git checkout master
+然后，敲命令git tag <name>（就可以打一个新标签）
+39、git tag（查看所有标签）
+40、如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？
+方法是找到历史提交的commit id，然后打上就可以了
+比方说要对add merge这次提交打标签，它对应的commit id是6224937，敲入命令$ git tag v0.9 6224937
+（注意，标签不是按时间顺序列出，而是按字母排序的。可以用git show <tagname>查看标签信息）
+41、$ git tag -a v0.1 -m "version 0.1 released" 3628164（-a指定标签名，-m指定说明文字）
+42、$ git tag -s v0.2 -m "signed version 0.2 released" fec145a（-s用私钥签名一个标签，签名采用PGP签名）
+ 
+
+    命令git tag <name>用于新建一个标签，默认为HEAD，也可以指定一个commit id；
+
+    git tag -a <tagname> -m "blablabla..."可以指定标签信息；
+
+    git tag -s <tagname> -m "blablabla..."可以用PGP签名标签；
+
+    命令git tag可以查看所有标签。
+43、$ git tag -d v0.1（标签打错了，可以删除）
+44、git push origin <tagname>（git push origin v1.0推送某个标签到远程，，，
+如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除$ git tag -d v0.9
+然后，从远程删除。删除命令也是push，但是格式如下：$ git push origin :refs/tags/v0.9）
+
+
+    命令git push origin <tagname>可以推送一个本地标签；
+
+    命令git push origin --tags可以推送全部未推送过的本地标签；
+
+    命令git tag -d <tagname>可以删除一个本地标签；
+
+    命令git push origin :refs/tags/<tagname>可以删除一个远程标签。
+45、$ git config --global alias.st status（告诉Git，以后st就表示status，，，--global参数是全局参数，也就是这些命令在这台电脑的所有Git仓库下都有用。）
+46、搭建Git服务器
+搭建Git服务器需要准备一台运行Linux的机器，强烈推荐用Ubuntu或Debian，这样，通过几条简单的apt命令就可以完成安装。
+假设你已经有sudo权限的用户账号，下面，正式开始安装。
+第一步，安装git：
+$ sudo apt-get install git
+第二步，创建一个git用户，用来运行git服务：
+$ sudo adduser git
+第三步，创建证书登录：
+
+收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。
+
+第四步，初始化Git仓库：
+
+先选定一个目录作为Git仓库，假定是/srv/sample.git，在/srv目录下输入命令：
+
+$ sudo git init --bare sample.git
+
+Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾。然后，把owner改为git：
+
+$ sudo chown -R git:git sample.git
+
+第五步，禁用shell登录：
+
+出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑/etc/passwd文件完成。找到类似下面的一行：
+
+git:x:1001:1001:,,,:/home/git:/bin/bash
+
+改为：
+
+git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell
+
+这样，git用户可以正常通过ssh使用git，但无法登录shell，因为我们为git用户指定的git-shell每次一登录就自动退出。
+
+第六步，克隆远程仓库：
+
+现在，可以通过git clone命令克隆远程仓库了，在各自的电脑上运行：
+
+$ git clone git@server:/srv/sample.git
+Cloning into 'sample'...
+warning: You appear to have cloned an empty repository.
+
+剩下的推送就简单了。
+管理公钥
+
+如果团队很小，把每个人的公钥收集起来放到服务器的/home/git/.ssh/authorized_keys文件里就是可行的。如果团队有几百号人，就没法这么玩了，这时，可以用Gitosis来管理公钥。
+
+这里我们不介绍怎么玩Gitosis了，几百号人的团队基本都在500强了，相信找个高水平的Linux管理员问题不大。
+管理权限
+
+有很多不但视源代码如生命，而且视员工为窃贼的公司，会在版本控制系统里设置一套完善的权限控制，每个人是否有读写权限会精确到每个分支甚至每个目录下。因为Git是为Linux源代码托管而开发的，所以Git也继承了开源社区的精神，不支持权限控制。不过，因为Git支持钩子（hook），所以，可以在服务器端编写一系列脚本来控制提交等操作，达到权限控制的目的。Gitolite就是这个工具。
+
+
+    搭建Git服务器非常简单，通常10分钟即可完成；
+
+    要方便管理公钥，用Gitosis；
+
+    要像SVN那样变态地控制权限，用Gitolite。
+
+
