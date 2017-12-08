@@ -19,7 +19,10 @@ git config --global user.name "Your Name"(git config命令的--global参数，用了这个
 15、git reset HEAD readme.txt命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。（文件提交到暂存区时可以用此命令回退到工作区）。
 假设你不但改错了东西，还从暂存区提交到了版本库，怎么办呢？还记得版本回退吗？可以回退到上一个版本。不过，这是有条件的，就是你还没有把自己的本地版本库推送到远程。
 16、rm test.txt 命令为删除文件（也可在文件管理器中删除）假如你有文件不小心commit到了服务器那么你想要删除它,可以使用: git rm -- cached "路径+文件名" 然后git commit -m "delete file"  之后git push
-17、git rm删掉，并且git commit文件就从版本库中删除了
+17、git rm删掉，并且git commit文件就从版本库中删除了     git rm --cached file1.txt  // 表示git不再跟踪该文件，不会在硬盘上删除(即可以再 git add 添加进来)
+git rm -r --cached .  // 这里会从git仓库中清除所有文件，而不是从硬盘上删除文件  git rm * -r（记得，cd 到你要删除的目录下。当然 * 可以换成指定目录）
+直接删除文件的时候用rm 文件名   或者直接在电脑上把它删除
+其中git add .后方可进行删除   可以通过git rm -f 文件
 18、git checkout -- test.txt把误删的文件恢复到最新版本（git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。只要版本库里有，
 命令git rm用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。）
 19、git config --list 查看当前配置, 在当前项目下面查看的配置是全局配置+当前项目的配置, 使用的时候会优先使用当前项目的配置
@@ -35,11 +38,14 @@ $ ssh-keygen -t rsa -C "youremail@example.com"(一路回车，由于这个Key也不是用于军
 我们根据GitHub的提示，在本地的learngit仓库下运行命令：
 $ git remote add origin git@github.com:12stream/newdemo.git（在GitHub上有）
 添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。
-如果执行此命令出现fatal: remote origin already exists错误可以通过git remote rm origin先删除远程git仓库，在进行即可
+
+如果执行此命令的时候出现fatal: remote origin already exists.的错误提示,则可以通过$ git remote rm origin删除远程 Git 仓库后再次执行此命令即可
 ④下一步，就可以把本地库的所有内容推送到远程库上：
 $ git push -u origin master（把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。由于远程库是空的，我们第一次推送master分支时，加上了-u参数，
 Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。）
 推送成功后，可以立刻在GitHub页面中看到远程库的内容已经和本地一模一样：
+
+最后在github中添加了README.md后会和本地不同步，需要git pull --rebase origin master进行代码合并，这时本地就多了README.md文件 之后再次进行 git push origin master即可
 21、git remote -v(查看连接的状态，要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git，关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
 此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；)
 22、从远程库克隆
