@@ -253,7 +253,7 @@ warning: You appear to have cloned an empty repository.
 	git stash apply 恢复存储的工作区
 	git stash drop 删除存储区的代码
 	git stash pop 恢复存储区的代码同时删除存储区的代码
-	git stash --list 查看存储文件
+	git stash --list 查看存储文件1
 
 
 
