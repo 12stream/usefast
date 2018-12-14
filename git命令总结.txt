@@ -221,5 +221,39 @@ warning: You appear to have cloned an empty repository.
     要方便管理公钥，用Gitosis；
 
     要像SVN那样变态地控制权限，用Gitolite。
+	
+	
+	
+	
+	
+	git init 创建仓储
+	git config --list 查看用户相关信息
+	git config --global user.name 查看用户名称
+	git config --global user.email 查看用户邮箱
+	git add . 把所有文件从工作区加到暂存区
+	git commit -m "注释"  提交代码到仓库
+	git log 查看文件的修改
+	git log --pretty=oneline 简化查看文件的修改
+	git remote add origin '远程仓储的地址'  关联远程仓储的地址
+	git remote -v 查看远程地址
+	git remote remove origin 解除与远程仓储的关联
+	git clone '远程仓储的地址'  把远程仓储的文件克隆到本地
+	git push -u origin master(加u的作用是强制把文件推送到远程的master分支上)
+	git pull 拉去与远程关联的master分支文件到本地
+	git checkout -b dev 创建dev分支同时切换到dev分支
+	git checkout lee 切换到lee分支
+	git branch dev 创建dev分支
+	git branch -a 查看所有的分支，包括远程分支
+	git branch 查看本地的所有分支
+	git merge dev 合并dev分支到当前分支
+	git checkout -- 文件名    在没有commit之前，可以回退到上一步操作
+	git reset --hard HEAD^ 回退到上一次修改的版本
+	git reset --hrad 版本号  回退到指定的版本号
+	git stash 代码冲突时，可以把某个分支的代码先暂存起来，等解决了之后在恢复暂存分支的代码
+	git stash apply 恢复存储的工作区
+	git stash drop 删除存储区的代码
+	git stash pop 恢复存储区的代码同时删除存储区的代码
+	git stash --list 查看存储文件
+
 
 
