@@ -1,0 +1,19 @@
+<import src="../../common/player.wxml" />
+<view class="x-h1">
+    <div class="x-d wh n">
+        <span class="x-h1-x mr24 bac-wh"></span>
+        已为你推荐{{leg}}条音频
+        <span class="x-h1-x ml24 bac-wh"></span>
+    </div>
+</view>
+
+<view class="vl-con" style="padding-bottom: {{paddBott}};">
+    <div wx:for="{{arr}}" wx:key="item" class="vl-list {{indexes==index ? 'active':''}} {{item.id==playId ? 'active':''}}" data-img="{{item.img}}" data-ti="{{item.title}}" data-url="{{item.url}}" data-id="{{item.id}}" data-idx="{{index}}" catchtap="playAudio">
+        <image class="vl-img" src="https://ttxuenong.oss-cn-shenzhen.aliyuncs.com/audio/images/37f0607b4b2b497986ad734b2ec24f8b.jpg"></image>
+        <div  class="vl-list-text">
+            <div class="db x-slh t1 f32">{{item.title}}</div>
+            <div class="db t2 f28">{{item.playSj}}</div>
+        </div>
+    </div>
+</view>
+<template is="player" data="{{...item}}"/>

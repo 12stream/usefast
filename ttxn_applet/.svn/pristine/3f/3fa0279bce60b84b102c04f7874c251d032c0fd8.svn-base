@@ -1,0 +1,69 @@
+/*
+
+<view class="x-gd-bg">
+    <view class="x-gd-b-box">
+        <view class="x-gd-b-con">
+            <view class="x-gd-ico-box">
+                <view class="x-gd-ico icon-fenxiang iconfont">
+
+                </view>
+                分享
+            </view>
+        </view>
+        <view class="x-gd-b-colse">
+            取消
+        </view>
+    </view>
+</view>
+
+*/
+.x-gd-bg{
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.3);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.x-gd-b-box{
+    position: fixed;
+    z-index: 101;
+    bottom:0;
+    left: 0;
+    right: 0;
+}
+.x-gd-b-con{
+    background-color: #f1f1f1;
+    height: 250rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.x-gd-ico-box{
+    font-size:28rpx;
+    color:#666;
+    text-align: center;
+    background-color: transparent;
+}
+.x-gd-ico{
+    width: 128rpx;
+    height: 128rpx;
+    background-color: #fff;
+    border-radius:20rpx;
+    margin-bottom: 10rpx;
+    line-height: 128rpx;
+    font-size:60rpx;
+}
+.x-gd-b-colse{
+    height: 96rpx;
+    width: 100%;
+    text-align: center;
+    color:#333;
+    font-size:36rpx;
+    line-height:96rpx;
+    background-color: #fff;
+    font-weight: 500;
+}

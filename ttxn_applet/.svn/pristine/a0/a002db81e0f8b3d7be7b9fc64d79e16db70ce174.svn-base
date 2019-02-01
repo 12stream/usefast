@@ -1,0 +1,41 @@
+<!--<view class="banner">-->
+
+    <!--<image class="banner" src="../../../assets/images/ac1-banner1.png">-->
+        <!--<div class="ac-gird">-->
+            <!--<span class="b-ico"></span>-->
+            <!--<div class="b-text">-->
+                <!--恭喜您获得价值￥9.9的柑橘课程！-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="f-tc grid">-->
+            <!--<div class="x-btn-md x-btn-yjs b ac-btn">前往听课</div>-->
+        <!--</div>-->
+    <!--</image>-->
+<!--</view>-->
+
+<!--<view class="x-h1 pb20">-->
+    <!--<div class="x-d">-->
+        <!--<span class="x-h1-x mr24"></span>-->
+        <!--<div>-->
+            <!--<div class="db g6">分享获得更多听课机会</div>-->
+            <!--<div class="db x-h1-ms">（随机获取一份价值￥9.9的课程）</div>-->
+        <!--</div>-->
+        <!--<span class="x-h1-x ml24"></span>-->
+    <!--</div>-->
+<!--</view>-->
+
+<!--<view class="gird f-tc">-->
+
+<!--<div class="ac-qr">-->
+    <!--Luffy在“<span class="green">天天学农</span>”给你分享了一-->
+    <!--个很实用的课程，长按图片识别-->
+    <!--二维码一起来学习吧-->
+<!--</div>-->
+<!--</view>-->
+
+<view class="ac4-cont">
+    <div class="iconfont icon-yigouneirong ac4-d1"></div>
+    <div wx:if="{{sign==1}}"class="ac4-d2">恭喜您获得3门课程！</div>
+    <div wx:else class="ac4-d2">您已经领取过3门课程了！</div>
+    <navigator  open-type="redirect" bindtap="aBtn"  class="ac4-d3" >{{btnText}}</navigator>
+</view>

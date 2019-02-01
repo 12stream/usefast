@@ -1,0 +1,101 @@
+.w1{
+    width: 100%;
+}
+/*padding*/
+.pt4{  padding-top: 4rpx;  }
+.pt6{  padding-top: 6rpx;  }
+.pr8{  padding-right: 8rpx;  }
+.pt8{  padding-top: 8rpx;  }
+.pt12{  padding-top: 12rpx;  }
+.pt14{  padding-top: 14rpx;  }
+.pt16{  padding-top: 16rpx;  }
+.pb20{  padding-bottom: 20rpx;  }
+.pt22{  padding-top: 22rpx;  }
+.pt24{  padding-top: 24rpx;  }
+.pl28{  padding-left: 28rpx;  }
+.pt30{  padding-top:30rpx;  }
+.pt32{  padding-top:32rpx;  }
+.pl32{  padding-left:32rpx;  }
+.pr32{  padding-right:32rpx;  }
+/*margin*/
+.mb16{  margin-bottom: 16rpx;  }
+.mr16{  margin-right: 16rpx;  }
+.mt20{  margin-top: 20rpx;  }
+.mr24{  margin-right: 24rpx;}
+.mt24{  margin-top: 24rpx;}
+.ml24{  margin-left: 24rpx;}
+.mb24{  margin-bottom: 24rpx;}
+.mr32{  margin-right: 32rpx;}
+.ml32{  margin-left: 32rpx;}
+.mb80{  margin-bottom: 80rpx;}
+.mb100{  margin-bottom: 100rpx;}
+
+.jc{  margin-left:auto;  margin-right:auto;  }
+
+.bgc{  background-color:#f4f4f4;  }
+.bgwh{  background-color: #fff;  }
+.x-cont{
+  width:100%;
+  box-sizing: border-box;
+  font-family: PingFang-SC;
+}
+/**/
+.f24{font-size:24rpx;}
+.f26{font-size:26rpx;}
+.f28{ font-size: 28rpx; }
+.f30{ font-size: 30rpx; }
+.f32{ font-size: 32rpx; }
+.f34{ font-size: 34rpx; }
+.f40{font-size:40rpx;}
+.f42{font-size:42rpx;}
+.f48{font-size:48rpx;}
+
+.b{ font-weight: bold; }
+.n{ font-weight:normal; }
+
+.lh104{ line-height:104rpx; }
+/* safe color */
+.g0{color:#000;}
+.g3{color:#333;}
+.g6{color:#666;}
+.g9{color:#999;}
+.gb{color:#bbb;}
+.gc{color:#ccc;}
+.wh{color:white;}
+
+/* vertical-align */
+.vm{vertical-align:middle;}
+.vtb{vertical-align:text-bottom;}
+.vb{vertical-align:bottom;}
+.vt{vertical-align:top;}
+.vn{vertical-align:-2rpx;}
+
+.db{  display: block;  }
+.dib{  display: inline-block;  }
+.rel{  position: relative;  }
+.abc{  position: absolute;  }
+
+.r{ float: right; }
+.l{ float: left; }
+
+.mr26{
+    margin-right:26rpx;
+}
+
+/*color*/
+.green{
+    color:#32c177;
+}
+.primary{  color:#ff6704;  }
+/*flex*/
+.tc{
+    text-align: center;
+}
+.f-tc{
+    justify-content:center;
+}
+.x-hide{  display: none;  }
+.x-vhide{  visibility: hidden;  }
+.x-hide-i{  display: none!important;  }
+/*.fix{*zoom:1;}*/
+.fix:after{display:table; content:''; clear:both;}

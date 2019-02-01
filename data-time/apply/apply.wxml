@@ -1,0 +1,83 @@
+<!--pages/apply/apply.wxml-->
+<view class='applytitle'>
+  <text class='apply_detail'>填写申请详情</text>
+  <text bindtap='goApplyList'>申请列表</text>
+</view>
+<view class='lock_way'>选择开锁方式</view>
+<view class='wrapper-way'>
+  <view class="qrcode">
+    <text>二维码开锁</text>
+    <view class="body-view">
+      <switch color="#0ABDBA" checked bindchange="switch2Change"/>
+    </view>
+  </view>
+  <view class="pw">
+    <text>密码开锁</text>
+    <view class="body-view">
+      <switch color="#0ABDBA" bindchange="switch1Change"/>
+    </view>
+  </view>
+</view>
+<view class='message'>填写详细信息</view>
+<form bindsubmit="formSubmit" class='apply_time'>
+<view class='apply_main'>
+    <view class="phonenumber">
+      <view class="phone">手机号：</view>
+      <text>{{mobile}}</text>
+    </view>
+    <view wx:if="{{indexName ==0}}">
+      <picker bindchange="bindPickerName" value="{{indexName}}" range="{{arrayName}}">
+          <view class="usename_title">
+          <view class="usename">备注名称：<text>{{arrayName[indexName]}}</text></view>
+          <view class="arrow"></view>
+        </view>
+      </picker>
+    </view>
+    <view wx:elif="{{indexName ==1}}">
+      <picker bindchange="bindPickerName" value="{{indexName}}" range="{{arrayName}}">
+          <view class="usename_title">
+          <view class="usename">备注名称：<text>{{arrayName[indexName]}}</text></view>
+          <view class="arrow"></view>
+        </view>
+      </picker>
+    </view>
+    <view wx:elif="{{indexName ==2}}">
+      <picker bindchange="bindPickerName" value="{{indexName}}" range="{{arrayName}}">
+          <view class="usename_title">
+          <view class="usename">备注名称：<text>{{arrayName[indexName]}}</text></view>
+          <view class="arrow"></view>
+        </view>
+      </picker>
+      <view class='yourname'>
+        <input type="text" placeholder='请输入备注内容' placeholder-style="color:#9DA5B9;font-size:24rpx;" name="noticename"></input>
+      </view>
+      
+    </view>
+    <view wx:else>
+      <picker bindchange="bindPickerName" value="{{indexName}}" range="{{arrayName}}">
+          <view class="usename_title">
+          <view class="usename">备注名称：<text>{{arrayName[indexName]}}</text></view>
+          <view class="arrow"></view>
+        </view>
+      </picker>
+    </view>
+     <picker mode="multiSelector" bindchange="bindPickerRoom" bindcolumnchange="bindColumnPickerRoom" value="{{indexRoom}}" range="{{arrayRoom}}">
+         <view class="choice">
+            <view class="room">选择房间：<text>{{arrayRoom[0][indexRoom[0]]}}　{{arrayRoom[1][indexRoom[1]]}}</text></view>
+            <view class="arrow"></view>
+         </view>
+      </picker>
+    <view class="password_starttime" bindtap='startTap'>
+      <view class="title">起始时间：</view>
+      <input class="date" type='text' value="{{startDate}}" name="start" disabled />
+      <view class="arrow"></view>
+    </view>
+    <view class="password_endtime" bindtap='endTap'>
+      <view class="title">失效时间：</view>
+      <input class="date" type='text' value="{{endtDate}}" name="end" disabled />
+      <view class="arrow"></view>
+    </view>
+    <include src="../../utils/picker_datetime.wxml"/>
+</view>
+<button formType="submit" class="sendonepassword">提交申请</button>
+</form>

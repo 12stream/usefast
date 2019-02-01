@@ -1,0 +1,26 @@
+page{
+    background-color: #fff;
+}
+.pc-con{
+    padding-left:32rpx;
+}
+.pc-lest{
+    border-bottom:1rpx solid #e5e5e5;
+    display: flex;
+    align-items:center;
+    padding-top: 24rpx;
+    padding-bottom:24rpx;
+
+}
+.pc-img{
+    width: 115rpx;
+    height: 144rpx;
+    border-radius: 8rpx;
+}
+.pc-text{
+    flex: 1;
+    color:#333;
+    font-size:30rpx;
+    padding-left: 24rpx;
+    overflow: hidden;
+}

@@ -1,0 +1,27 @@
+
+    <block wx:if="{{nullInfo === true}}">
+        <!--<loading hidden="{{loadingHidden}}">-->
+                <!--加载中...-->
+        <!--</loading>-->
+        <navigator  url="../../deatil/courseDetails/courseDetails?subjectId={{item.subject_id}}" wx:for="{{buyRecordList}}" class="pr-con" wx:key="item" wx:for-index="rdIndex" >
+            <view class="db pr-t1">
+                <view class="x-slh">{{item.l_title}}</view>
+            </view>
+            <view class="db pr-t2">
+                <view>{{item.buy_date}}</view>
+                <view>¥{{item.buy_price}}</view>
+            </view>
+        </navigator >
+        <view class="complete" hidden="{{!loadingComplete}}">加载完了</view>
+        <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>
+    </block>
+    <block wx:if="{{nullInfo === false}}">
+          <view class="course-box-null">
+              <label class="null-icon null-record iconfont icon-goumaijilu"></label>
+              <view class="null-p">你还没有购买任何内容</view>
+                  <button class="null-btn" bindtap="otherCourse">回首页逛逛</button>
+          </view>
+    </block>

@@ -1,0 +1,113 @@
+/**my.wxss**/
+@import "../my/my.wxss";
+.none{
+  display: none;
+}
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  overflow: hidden;
+  z-index: 999;
+  color: #fff;
+}
+.no-bord:after{border-bottom:none}
+.drawer_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  background: #fff;
+}
+.drawer_attr_content {
+  height: 540rpx;
+  overflow-y: scroll;
+}
+.check-box{
+  margin-left: -32rpx;
+  width:718rpx;
+  display: block;
+  box-sizing: border-box;
+}
+.drawer_attr_content .drawer_box{
+  width: 640rpx;
+  padding: 32rpx 32rpx 120rpx;
+  margin: 0 auto;
+}
+.drawer_attr_content .drawer_h1{
+  font-size: 34rpx;
+  text-align: center;
+  color: #333;
+}
+.drawer_attr_content .drawer_t1{
+  font-size: 28rpx;
+  text-align: left;
+  color: #999;
+  margin-top: 24rpx;
+}
+.drawer_attr_content .tsc label {
+    position: relative;
+    display: inline-block;
+    padding: 14rpx 25rpx;
+    margin-left: 31rpx;
+    margin-top: 24rpx;
+    font-size: 28rpx;
+    color: #666;
+    box-sizing: border-box;
+    border:1rpx solid #e5e5e5;
+}
+.drawer_attr_content .tsc .active {
+    background: #ff6704;
+    color: #fff;
+    border-color: #ff6704; 
+}
+.drawer_attr_content .tsc .active::after{
+    border-color: #ff6704; 
+}
+.drawer_attr_content .tsc label:last-child{
+  margin-right: 0;
+}
+/* .drawer_attr_content .tsc label:after {
+    pointer-events: none;
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    content: "";
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    border: 1px solid #999;
+    border-radius: 4rpx;
+} */
+.drawer_attr_content .submit-topic{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  letter-spacing: -0.4px;
+  color: #fff;
+  background: #ff6704;
+  border-color: #ff6704;
+  border-radius: 0;
+}
+.tap-label{
+  position:absolute;
+  background: transparent;
+  top:0;
+  left:0;
+  display:block;
+  width:100%;
+  height:88rpx;
+  z-index: 10;
+}

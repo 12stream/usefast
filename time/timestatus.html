@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta charset="utf-8">
+    <!--     <link rel="stylesheet" type="text/css" href="../../css/ratchet.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/datePicker.css">
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/require/iscroll.js"></script>
+    <script type="text/javascript" src="js/datePicker.js"></script>
+    <title>Document</title>
+    <style>
+        .input-group {
+        padding: 10px;
+    }
+    
+    .input-group input {
+        margin: 10px;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: auto;
+    }
+    .choicedate{
+        color: #000;
+    }
+    #datestart{
+        background:red;
+        display: block;
+        width: 250px;
+        height: 50px;
+    }
+    </style>
+</head>
+<body>
+        <div class="input-group">
+                <!-- <input type="text" id="date5" readonly="" placeholder="年-月-日-时间-回调"> -->
+                <div class="weui-cell__ft name_main"><span id="date5"></span></div>
+            </div>
+
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd name_title">
+                  <p>起始时间：</p>
+                </div>
+                <!-- <div class="weui-cell__ft name_main"><input type="text" id="datestart" readonly="" class="time"></div> -->
+                <div class="weui-cell__ft name_main"><span id="datestart" class="time"></span></div>
+              </div>
+
+</body>
+<script>
+    // 时间类型参考源码
+    $(function() {
+    $('#datestart').datePicker({
+        beginyear: 2017,
+        theme: 'datetime',
+        endyear:2050,
+        callBack: function() {
+            alert("--!当前值:" + $('#datestart').html());
+            // alert("--!当前值:" + $('#date5').val());
+        }
+    });
+   
+})
+</script>
+</html>

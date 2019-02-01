@@ -1,0 +1,54 @@
+<!--my.wxml-->
+<import src="../../common/player.wxml" />
+<view class="my-header">
+    <label class="label-h"></label>
+   <view class="avatar-box">
+     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+   </view>
+         <label class="userinfo-name">{{userInfo.nickName}}</label>
+</view>
+<view class="my-course">
+    <view class="course-box">
+        <view class="course-list course-time">
+            <label class="lab-1">{{timeToday ? timeToday : 0}}</label>
+            <label class="lab-2">今日学习(分钟)</label>
+        </view>
+        <navigator class="course-list course-all" url="../studiedCourse/studiedCourse">
+            <label class="lab-1">{{course ? course : 0}}</label>
+            <label class="lab-2">已学课程(门)</label>
+        </navigator>
+    </view>
+</view>
+
+<view class="info-box">
+<!-- <view hidden="{{!hideIssuance}}">
+      <navigator  url="../purchaseContent/purchaseContent"  class="info-card">
+        <view class="card-lt"><label class="iconfont icon-yigouneirong  icon-duihao1 lab-icon-1"></label></view>
+        <view class="card-rt">我的课程<label class="iconfont icon-icon-test po-right-jt"></label></view>
+      </navigator>
+</view> -->
+      <navigator url="../myinfo/myinfo" class="info-card">
+        <view class="card-lt"><label class="iconfont icon-gerenziliao lab-icon-2"></label></view>
+        <view class="card-rt card-rt-boder-no">个人资料<label class="iconfont icon-icon-test po-right-jt"></label></view>
+      </navigator>
+
+      <navigator url="../learningRecord/learningRecord" class="info-card">
+        <view class="card-lt"><label class="iconfont icon-bofangjilu icon-bofang1 lab-icon-4"></label></view>
+        <view class="card-rt">播放记录<label class="iconfont icon-icon-test po-right-jt"></label></view>
+      </navigator>
+       <navigator url="../collect/collect" class="info-card play-record">
+        <view class="card-lt"><label class="iconfont icon-yixihuan lab-icon-5"></label></view>
+        <view class="card-rt card-rt-boder-no">我的收藏<label class="iconfont icon-icon-test po-right-jt"></label></view>
+      </navigator>
+
+    <navigator url="../feedback/feedback" class="info-card">
+        <view class="card-lt"><label class="iconfont icon-yijianfankui lab-icon-2" style="color:#00c100"></label></view>
+        <view class="card-rt card-rt-boder-no">意见反馈<label class="iconfont icon-icon-test po-right-jt"></label></view>
+    </navigator>
+</view>
+<template is="player" data="{{...item}}"/>
+
+
+
+
+

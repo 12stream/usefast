@@ -1,0 +1,6 @@
+.mask{background:#666666; opacity:0.4;}
+.dialog_body{width:100%; height:100%; border:1px solid #999999; background-color:#ffffff;}
+.dialog_top{background-color:#555555; color:#ffffff; height:14px; padding:5px; font-size:12px;}
+.dialog_main{text-align:center; height:55px; padding-top:40px; color:#333333;}
+.dialog_bottom{padding:0 15px; color:#333333;}
+.dialog_bottom span{float:right;}

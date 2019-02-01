@@ -1,0 +1,69 @@
+<!--my.wxml-->
+<view class="my-info-box">
+      <view class="info-card info-avatar">
+        <view class="card-lt">头像</view>
+        <view class="card-rt no-bord"> <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image></view>
+      </view>
+</view>
+<view class="my-info-box">
+      <view class="info-line"></view>
+      <view class="info-card">
+        <view class="card-lt">昵称</view>
+        <view class="card-rt no-bord"><input placeholder="请输入昵称" type="text" value="{{userInfo.nickName}}" disabled/></view>
+      </view>
+      <view class="info-card">
+        <view class="card-lt">手机</view>
+        <view class="card-rt no-bord"><input type="text" value="{{phonenum}}" disabled/><label class="iconfont icon-icon-test po-right-jt"></label></view>
+         <navigator url="../modifyPhone/modifyPhone"><label class="tap-label"></label> </navigator>
+      </view>
+      <view class="info-card">
+        <view class="card-lt">职业</view>
+        <view class="card-rt no-bord"><input placeholder="请选择您的职业" type="text" value="{{jobName}}" disabled /><label class="iconfont icon-icon-test po-right-jt"></label>
+         <label class="tap-label" bindtap="selectJob"></label>
+        </view>
+      </view>
+      <view class="info-card">
+        <view class="card-lt">关注话题</view>
+        <view class="card-rt no-bord" ><input placeholder="请选择您关注的话题" type="text" value="{{topicName}}" disabled  bindinput="setTopic"/><label class="iconfont icon-icon-test po-right-jt"></label>
+        <label class="tap-label" bindtap="selectTopic"></label>
+        </view>
+      </view>
+</view>
+<!--topic-{{tpIndex == idx ? 'active': ''}}-->
+<view class="drawer_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+  <view class="drawer_attr_content">
+          <block wx:if="{{topic === true}}">
+              <view class="drawer_box" style="margin: 0;width:auto;">
+                  <view class="drawer_h1">请选择话题</view>
+                   <checkbox-group  bindchange="ckChange">
+                          <div class="tsc check-box">
+                             
+                                  <block wx:for="{{topicList.tags}}" wx:key="item" wx:for-index="tpIndex"> 
+                                        <label data-name="{{item.name}}"  data-id="{{tpIndex}}" class="{{item.checked ? 'active' : ''}}" bindtap="selectedTopic">
+                                        <checkbox value="{{item.value}}"  checked="{{item.checked ? true : false}}" class="none"/>
+                                        {{item.name}}</label>
+                                    </block>  
+                           
+                            </div>      
+                               </checkbox-group>  
+                </view>
+                <button bindtap="submitTopic" class="submit-topic">确定</button> 
+          </block>
+          <block wx:if="{{topic === false}}">
+              <view class="drawer_box">
+                  <view class="drawer_h1">请选择职业</view>
+                          <div class="tsc">
+                              <checkbox-group  bindchange="ckChange_t">
+                                  <block wx:for="{{jobList.tags}}" wx:key="item" wx:for-index="jbIndex"> 
+                                        <label data-name="{{item.name}}"  data-id="{{jbIndex}}" class="{{item.checked ? 'active' : ''}}" bindtap="selectedJob">
+                                          <checkbox value="{{item.value}}" checked="{{item.checked ? true : false}}" class="none"/>
+                                        {{item.name}}</label>
+                                    </block>  
+                              </checkbox-group>
+                            </div>        
+                </view>
+                <button bindtap="submitJob" class="submit-topic">确定</button> 
+          </block>
+  </view>
+</view>

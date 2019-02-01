@@ -1,0 +1,46 @@
+button{
+    border:none;
+    background-color: transparent;
+    border-radius: 0;
+}
+button::after {
+    border:none;
+}
+.x-btn{
+    display: inline-block;
+    background-color: #ff6704;
+    line-height: 88rpx;
+    height: 88rpx;
+    width: 686rpx;
+    color:#fff;
+    font-size:34rpx;
+    text-align: center;
+    border-radius: 5rpx;
+}
+
+.x-btn-md{
+    padding-left: 32rpx;
+    padding-right: 32rpx;
+    display: inline-block;
+    color:#fff;
+    font-size:30rpx;
+    border:1px solid #ff6704;
+    background-color: #ff6704;
+    line-height: 64rpx;
+    height: 64rpx;
+    box-sizing: border-box;
+}
+/*color*/
+
+.x-btn-x{
+    background-color: #fff;
+    border:1px solid #cccccc;
+    color:#666;
+}
+
+.x-btn-yj{
+    border-radius: 32rpx;
+}
+.x-btn-yjs{
+    border-radius: 8rpx;
+}

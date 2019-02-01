@@ -1,0 +1,189 @@
+/* pages/settings/oncePassword/oncePasswordMessage/oncePasswordMessage.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  font-size: 30rpx;
+}
+.applytitle{
+  width: 100%;
+  height: 88rpx;
+  background: #000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #595959;
+}
+.applytitle .apply_detail{
+    display: block;
+    height: 58rpx;
+    line-height: 58rpx;
+    border-bottom: 3px solid #0ABDBA;
+    color: #0ABDBA ;
+}
+.wrapper-way{
+  width: 96%;
+  margin: 0 2%;
+  border: 1rpx solid #E0E0E0 ;
+}
+.lock_way,.message{
+  width: 96%;
+  padding-top: 50rpx;
+  padding-bottom: 20rpx;
+  color: #9DA5B9;
+  font-size: 28rpx;
+  margin: 0 2%;
+}
+.message{
+  padding-bottom: 20rpx;
+}
+.qrcode,.pw{
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #F2F3F7;
+}
+.qrcode{
+    border-bottom: 1rpx solid #E0E0E0 ;
+}
+.qrcode .body-view,.pw .body-view{
+  height: 60rpx;
+  display: inline-block;
+  float: right;
+}
+.qrcode text,.pw text{
+  padding-left: 2%;
+  color: #242536;
+}
+.apply_time{
+  display: block;
+  width: 96%;
+  margin: 0 2%;
+}
+.apply_main{
+  background: #F2F3F7;
+  color: #242536;
+  border: 1rpx solid #E0E0E0 ;
+}
+.phonenumber,.usename_title,.choice,.yourname{
+    height: 80rpx;
+    border-bottom: 1rpx solid #E0E0E0;
+}
+.yourname input{
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 20rpx;
+  color: #9DA5B9;
+}
+.choice,.usename_title,.password_starttime,.password_endtime{
+   padding-right: 26rpx;
+   position: relative;
+}
+.choice .room text,.usename_title .usename text{
+  color: #9DA5B9;
+  float: right;
+  padding-right: 40rpx;
+}
+.arrow::after{
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #888888;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  margin-top: -8rpx;
+  right: 20rpx;
+}
+.phonenumber .phone,.usename_title .usename,.password_starttime .title,.password_endtime .title,.choice .room{
+  float: left;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 2%;
+}
+.usename_title .usename,.choice .room{
+  width: 100%;
+}
+.password_starttime,.password_endtime{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.password_starttime{
+  border-bottom: 1rpx solid #E0E0E0;
+}
+.password_starttime input,.password_endtime input,.usename_title input{
+  display: inline-block;
+  width: 400rpx; 
+  height: 80rpx;
+  float: right;
+  padding-right: 40rpx;
+  /* clear: both; */
+}
+.usename{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.phonenumber text{
+  float: right;
+  margin: 20rpx;
+  padding-left: 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #9DA5B9;
+}
+.usetime text{
+  padding-left: 5rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #a2a2a2;
+}
+button{
+  color: #fff;
+  background: #0abdba;
+  width: 200rpx;
+  margin: 30px auto;
+}
+.passwordget{
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #a2a2a2;
+  margin-left: 20rpx;
+}
+.sendonepassword{
+  width: 600rpx;
+}
+
+/* 调用日期 */
+.date{
+  text-align: right;
+}
+.pick_datetime {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width:100%;
+    overflow:hidden; 
+    background: #fff;
+    z-index: 1000;
+}
+.pick_datetime_tool {
+    display:flex;
+    justify-content:space-between;
+    height:92rpx;
+    line-height:92rpx;
+    border-top:4rpx solid #eee;
+    border-bottom:4rpx solid #eee;
+    padding:0 20rpx;
+    background: #fff;
+}
+.pick_datetime_ok,.pick_datetime_clear {font-size:30rpx;color:#0035A4;}
+.pick_datetime picker-view {
+    font-size:34rpx;
+}
+.pick_datetime_column {
+    height:40px;
+    line-height:40px;
+    text-align:center;
+}

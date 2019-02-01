@@ -1,0 +1,81 @@
+<import src="../common/player.wxml" />
+<import src="/assets/component/load.wxml"/>
+<view class="circleProgress_wrapper">
+    <view class="wrapper right">
+        <view class="circleProgress rightcircle" style="background-color:{{item.jdRight}};"></view>
+    </view>
+    <view class="wrapper left">
+        <view class="circleProgress leftcircle"></view>
+    </view>
+</view>
+<view class="container_box" style="padding-bottom: {{paddBott}};">
+    <!--banner-->
+    <!-- <view class="index-header"><label class="iconfont icon-rili"></label>  {{weather.cdate}} 农历{{weather.nlDate}} 
+  <label class="index-header-rt">{{city}}{{district}}  {{weather.c2}}  {{weather.c1}}</label>
+</view> -->
+    <view class="index-banner" hidden="{{!banner.length}}">
+        <swiper class="index-swiper" indicator-dots="true" indicator-color="rgba(0, 0, 0, .1)" circular="true" indicator-active-color="#ff6704" autoplay="true" interval="3000" duration="1000">
+            <block wx:for="{{banner}}" wx:key="{{item}}">
+                <navigator data-id="idnex" url="{{hideIssuance?item.link:0}}">
+                    <!--<navigator data-id="idnex" url="../activity/activity/activity">-->
+                    <swiper-item>
+                        <image src="{{item.url}}" class="slide-image" />
+                    </swiper-item>
+                </navigator>
+            </block>
+        </swiper>
+    </view>
+    <!--banner-->
+    <view class="xn-sch" hidden="{{!hideIssuance}}">
+        <block wx:for="{{subjectList}}" wx:key="item" wx:for-index="suIndex" >
+            <navigator url="../deatil/courseDetails/courseDetails?subjectId={{item.id}}" class="sch-more-btn" >
+                <view class="sch-list"    data-idx="{{suIndex}}" bindtap="disappearTime">
+                    <view class="sch-img">
+                        <image src="{{item.s_img}}"></image>
+                        <!--最新图标-->
+                        <image src="/assets/images/nearly.png" class="zuixin" hidden="{{!item.isNear}}"></image>
+                        <!--连载与否图点   如果学习就显示，不学习就隐藏-->
+                        <view class="load-cur {{item.is_update==1?'':'none'}}" hidden="{{!item.is_serial}}"></view>
+                    </view>
+                    <view class="sch-list-info">
+                        <view class="text-to">
+                            <text class="sch-h1">{{item.l_title}}</text>
+                            <block wx:if="{{item.name!=null}}">
+                                <text class="sch-p">{{item.name}}·{{item.s_title}}</text>
+                            </block>
+                            <block wx:else>
+                                <text class="sch-p">{{item.s_title}}</text>
+                            </block>
+                        </view>
+                        <!--if 连载-->
+                        <view wx:if="{{item.is_serial}}" class="sch-time" >
+                            <!--连载共多少节-->
+                            <!--is_end=0 未完结    1完结-->
+                            <view wx:if="{{item.is_end==0}}" class="load-info">
+                                <view class=""><text>   更新至第{{item.subjects}}节</text> <text class="bd-ra {{item.is_update!=0?'':'none'}}" >{{item.what_time}}</text></view>
+                            </view>
+                            <view wx:else class="load-info">
+                                <view class="">共{{item.subjects}}节 <text class="bd-ra {{item.is_update!=0?'':'none'}}">{{item.what_time}}</text></view>
+                            </view>
+                            <view style="font-size:26rpx;padding-top: 30rpx;">{{item.times}}人已学</view>
+                        </view>
+                        <view wx:else class="sch-time">
+                            <!--不连载-->
+                            <view class="">共{{item.subjects}}节</view>
+                            <view style="font-size:26rpx;padding-top: 30rpx;">{{item.times}}人已学</view>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </block>
+    </view>
+    <view class="weui-loadmore" hidden="{{!isHideLoadMore}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view class="complete" hidden="{{!showMore}}">加载完了</view>
+    <view style="height:{{isShowPlayer}};{{isShowPlayer==0?'opacity:0':'opacity:1'}}" > </view>
+</view>
+
+<template is="xLoad" data="{{xLoad}}"></template>
+<template is="player" data="{{...item}}" />

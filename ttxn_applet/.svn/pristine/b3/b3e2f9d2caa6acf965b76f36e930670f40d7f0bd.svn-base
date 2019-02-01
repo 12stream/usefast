@@ -1,0 +1,34 @@
+
+.sc-boxL{
+    padding-left: 32rpx;
+    padding-top: 24rpx;
+    background-color: #fff;
+}
+.sc-box{
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #e5e5e5;
+    padding-bottom: 24rpx;
+}
+.sc-img{
+    width: 117rpx;
+    height: 146rpx;
+    margin-right: 24rpx;
+}
+.sc-text{
+    flex: 1;
+}
+.sc-title{
+    color:#333;
+    font-size:34rpx;
+}
+.sc-t2{
+    color:#999;
+    font-size:26rpx;
+    padding-top: 13rpx;
+    padding-bottom: 25rpx;
+}
+.sc-t3{
+    color:#999;
+    font-size:26rpx;
+}
