@@ -1,0 +1,42 @@
+<!--tearcherInfo.wxml-->
+<import src="../../../assets/wxParse/wxParse.wxml" />
+<import src="/assets/component/load.wxml"/>
+<view class="li-banner">
+    <!--<image src="{{list[0].bg_img}}" class="li-banner-img"></image>-->
+    <image src="{{list[0].bg_img ? list[0].bg_img : '/assets/images/jiangshi-bg.jpg'}} " class="li-banner-img"></image>
+</view>
+<view class="li-container">
+    <view class="li-top">
+        <view class="headImg">
+            <image src="{{list[0].img}}"></image>
+        </view>
+        <view class="headImg-word">{{list[0].name}}</view>
+    </view>
+    <view class="introduce">
+        <template is="wxParse" data="{{wxParseData:insertData.nodes}}" />
+       <!--{{list[0].content}}-->
+    </view>
+    <view class="empty-one"></view>
+    <view class="tip-describe">
+         共讲述了{{li_length}}个课程
+    </view>
+    <view class="line-g"></view>
+<!-- //课程列表 -->
+    <block wx:for="{{list}}" wx:key="item">
+      <navigator url="../courseDetails/courseDetails?subjectId={{item.subjectId}}">
+        <view class="list-course" >
+               <view class="list-l">
+                  <image src="{{item.s_img}}"></image>
+               </view>
+               <view class="list-r">
+                         <view class="list-r-t">{{item.l_title}}</view>
+                         <view class="list-r-m">{{item.creat_time}}</view>
+                         <!--<view class="list-r-m">{{item.create_time}}</view>-->
+                         <view class="list-r-b" style="margin-top:10px;">{{item.times}}人已学</view>
+                </view>
+        </view>
+        </navigator>
+    </block>
+
+</view>
+<template is="xLoad" data="{{xLoad}}"></template>

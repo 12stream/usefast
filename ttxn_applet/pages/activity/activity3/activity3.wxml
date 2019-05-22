@@ -1,0 +1,20 @@
+
+<image class="banner" src="https://ttxuenong.oss-cn-shenzhen.aliyuncs.com/static/img/applet/ac3-banner.png"></image>
+
+    <view class="x-h1 pb20">
+        <view class="x-d">
+            <span class="x-h1-x mr24"></span>
+            填写6位短信验证码
+            <span class="x-h1-x ml24"></span>
+        </view>
+    </view>
+    <view class="ac-con mb80">
+        <input class="x-input ac-input" bindblur="value"  type="number"  placeholder="请输入短信验证码"  />
+        <view class="ac-btn1 primary" bindtap="codeBtn" > {{time}}</view>
+    </view>
+
+    <view class="grid f-tc">
+        <button  class="x-btn b"  bindtap="submit">
+            完成
+        </button >
+    </view>

@@ -1,0 +1,25 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="f-textarea-box">
+        <textarea class="f-textarea" name="question" maxlength="150" placeholder-style="color:#ccc" placeholder="请详细描述您的问题" />
+        <view class="f-img-box">
+            <!--src="{{imgArr[index]}}"-->
+            <image wx:for="{{imgArr}}" id="{{index}}" data-index="{{index}}" bindtap="openfenxiang" wx:key="unique" class="f-img" src="{{imgArr[index]}}"></image>
+            <view class="f-file icon-tupian iconfont" hidden="{{imgArr.length==6}}" bindtap="file"></view>
+        </view>
+    </view>
+    <input name="phone" class="f-input"   placeholder-style="color:#ccc"  placeholder="请留下您的手机，方便我们联系您" />
+    <!--bindtap="submit"-->
+    <button class="x-btn jc db b" formType="submit" >提交</button>
+</form>
+
+
+<view class="x-gd-bg" hidden="{{!fenxiang}}" >
+    <view class="x-gd-b-box">
+        <view class="x-gd-b-colse mb16" bindtap="delArr" style="color:#ff4c3a">
+            删除
+        </view>
+        <view class="x-gd-b-colse" bindtap="fenxiangColse">
+            取消
+        </view>
+    </view>
+</view>

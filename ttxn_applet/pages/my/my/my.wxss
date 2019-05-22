@@ -1,0 +1,263 @@
+    /**my.wxss**/
+    @import "../../common/player.wxss";
+    page{
+    background-color: #f4f4f4;
+    }
+    .my-header{
+    position: relative;
+    height: 320rpx;
+    background: url(https://ttxuenong.oss-cn-shenzhen.aliyuncs.com/static/img/applet/my-bg.jpg) no-repeat center top;
+    background-size: contain;
+    }
+    .my-header .avatar-box{
+    width: 140rpx;
+    height: 140rpx;
+    border: solid 4rpx rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    }
+    .my-header .avatar-box image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    }
+    .my-header .label-h{
+    display: block;
+    height: 60rpx;
+    }
+    .my-header .userinfo-name{
+    display: block;
+    font-size: 34rpx;
+    font-weight: bold;
+    letter-spacing: -0.3px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 8rpx rgba(0, 0, 0, 0.5);
+    margin-top: 14rpx;
+    }
+    .my-course{
+    background: #fff;
+
+    }
+    .my-course .course-box{
+    position: relative;
+    height: 135rpx;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    }
+    .my-course .course-list{
+    flex: 1;
+    text-align: center;
+    }
+    .my-course .course-time{
+    border-right: 1rpx solid #e5e5e5;
+    }
+    .my-course .course-list .lab-1{
+    display: block;
+    font-size: 40rpx;
+    font-weight: bold;
+    text-align: center;
+    color: #ff6704;
+    }
+    .my-course .course-list .lab-2{
+    display: block;
+    font-size: 28rpx;
+    text-align: center;
+    color: #666;
+    padding-top:0rpx;
+    }
+    .info-box{
+    position: relative;
+    }
+    .info-box .info-card{
+    position: relative;
+    height: 96rpx;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    background: #fff;
+    padding-left: 32rpx;
+    margin-top: 24rpx;
+        width: 100%;
+        overflow: hidden;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    /*.info-box>.info-card:last-child{*/
+
+    /*}*/
+    .info-card .card-lt{
+    width: 76rpx;
+    }
+    .info-card .card-lt label{
+    display: inline-block;
+    font-size: 44rpx;
+    vertical-align: top;
+    }
+    .info-card .lab-icon-1{
+    color: #00c100;
+    }
+    .info-card .lab-icon-2{
+    color: #009bff;
+    }
+    .info-card .lab-icon-3{
+    color: #FFC000;
+    }
+    .info-card .lab-icon-4{
+    color: #009BFF;
+    }
+     .info-card .lab-icon-5{
+    color: #FF6704;
+    }
+   
+    .info-card .card-rt{
+    flex: 1;
+    font-size: 34rpx;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: #333;
+    }
+    .po-right-jt{
+    position: absolute;
+    top: 50%;
+    right: 32rpx;
+    height: 22rpx;
+    font-size: 22rpx;
+    margin-top: -11rpx;
+    color: #333;
+    }
+    .info-box .play-record{
+    margin-top: 0;
+    }
+    .info-box .buy-record{
+    overflow: hidden;
+    }
+    .buy-record ::after{
+    content: "";
+    position: absolute;
+    left: 108rpx;
+    width: 100%;
+    bottom: 0;
+    border-bottom: 1rpx solid #e5e5e5;
+    }
+    .po-right-jt::after{
+        border: none;
+    }
+    .card-rt::after{content:"";
+    position:absolute;
+    left:32rpx;
+    width:100%;
+    bottom:0;
+    border-bottom:1rpx solid #e5e5e5;
+    }
+    .card-rt-boder-no::after{
+        border: none;
+    }
+    /*my-info*/
+    .my-info-box{
+    position: relative;
+    padding-left: 32rpx;
+    background: #fff;
+    margin-top: 24rpx;
+    }
+    .my-info-box .info-card{
+    position: relative;
+    height: 88rpx;
+    display: flex;
+    flex-flow: row;
+    align-items:center;
+    border-bottom: 1rpx solid #e5e5e5;
+    box-sizing: border-box;
+    z-index:1;
+    cursor: pointer;
+    }
+    .my-info-box .info-avatar{
+    height: 204rpx;
+    }
+    .my-info-box .info-card .card-lt{
+    width: 138rpx;
+    font-size: 34rpx;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: #333;
+    }
+    .my-info-box .info-card .card-rt input{
+    font-size: 32rpx;
+    letter-spacing: -0.3px;
+    text-align: right;
+    color: #333;
+    padding-right: 64rpx;
+    padding-left: 20rpx;
+    }
+    .my-info-box .userinfo-avatar{
+    float: right;
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 50%;
+    margin-right: 32rpx;
+    }
+    .modi-box{
+    position: relative;
+    padding-left: 32rpx;
+    background: #fff;
+    margin-top: 64rpx;
+    }
+    .modi-box .modi-list{
+    position: relative;
+    height: 88rpx;
+    display: flex;
+    flex-flow: row;
+    align-items:center;
+    border-bottom: 1rpx solid #e5e5e5;
+    box-sizing: border-box;
+    }
+    .modi-box .modi-list:last-child{
+        border: none;
+    }
+    .modi-box .modi-list label{
+    width: 136rpx;
+    font-size: 34rpx;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: #333;
+    line-height: normal;
+    }
+    .modi-box .modi-list .modi-rt{
+    flex: 1;
+    }
+    .modi-list .modi-rt input{
+    font-size: 34rpx;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: #333;
+    }
+    .modi-box .modi-list .getcode{
+    float: right;
+    width: 229rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 34rpx;
+    letter-spacing: -0.3px;
+    text-align: center;
+    color: #ff6704;
+    border-left: 1rpx solid #e5e5e5;
+    box-sizing: border-box;
+    }
+    .btn-area {
+    position: relative;
+    padding: 0 32rpx;
+    margin-top: 88rpx;
+    }
+    .btn-area .submit-modi{
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 36rpx;
+    font-weight: bold;
+    letter-spacing: -0.4px;
+    color: #fff;
+    background: #ff6704;
+    border-color: #ff6704;
+    }

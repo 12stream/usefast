@@ -1,0 +1,54 @@
+<!--旧模板-->
+<!--subjectId=c6524558f52843b4b756525f883abca1&audioId=be4eb21647274470b7d0ea0102786d78-->
+<!-- <template name="player">
+
+      <view  class="player" bindtap="audioUrlBtn" style="height:{{isShowPlayer}};" >
+          <image src="{{audio_de.coverImgUrl}}" class="player-lt"></image>
+          <view class="player-rt">
+              <label class="player-name">{{audio_de.title}}</label>
+              <view class="slider-jd">
+                  <slider class="slider" min="0" max="{{maxTime}}" backgroundColor="#fff" activeColor="#ff6704" value="{{playTime}}" ></slider>
+              </view>
+              <view class="player-time">
+                  <text>{{formatedPlayTime}}</text>/<text>{{endTime}}</text>
+              </view>
+          </view>
+          <block wx:if="{{playing === true}}">
+              <label class="iconfont icon-zanting player-pause" bindtap="pause"></label>
+          </block>
+          <block wx:if="{{playing === false}}">
+              <label class="iconfont icon-bofang player-play" bindtap="play"></label>
+          </block>
+      </view >
+</template>  -->
+<template name="player">
+    <!--<view  class="player" style="height:52px;"   >  {{isShowPlayer=='104rpx' ? 'player-dh':''}}-->
+     <view  class="player" style="height:{{isShowPlayer}};{{isShowPlayer==0?'opacity:0':'opacity:1'}}"  >
+            <image src="{{audio_de.coverImgUrl}}"  class="player-lt" style="transform: rotateX(0deg) rotateY(0deg) rotateZ({{deg}}deg);"></image>
+            <!--<image src="{{audio_de.coverImgUrl}}"  class="player-lt {{isShowPlayer ? 'player-dh':''}}   {{ playing ? '': 'player-paused'}}  "></image>-->
+        <view class="player-rt">
+            <label class="player-name" bindtap="audioUrlBtn" >
+                <view class="x-slh f32 g3 player-title pr32" >{{audio_de.title}}</view>
+                <view class="g6 f26 pt8 x-slh pr32" style="padding-bottom: 3rpx;">{{audio_de.label}}</view>
+            </label>
+            <!-- <view class="player-time">
+                {{audio_de.titl2}}
+            </view> -->
+        </view>
+
+        <view wx:if="{{playing === true}}" class="player-pause-box-box" bindtap="pause">
+            <view class="circleProgress_wrapper"><view class="wrapper wrapper-right "><view class="circleProgress rightcircle" style="{{jdRight}}"></view></view><view class="wrapper wrapper-left "><view class="circleProgress leftcircle" style="{{jfLeft}}" ></view></view></view>
+            <view  class="player-pause-box" >
+                <view class="iconfont icon-zanting player-pause" ></view>
+            </view>
+        </view>
+
+         <view wx:if="{{playing === false}}" class="player-pause-box-box" bindtap="play">
+             <view class="circleProgress_wrapper"><view class="wrapper wrapper-right "><view class="circleProgress rightcircle" style="{{jdRight}}"></view></view><view class="wrapper wrapper-left "><view class="circleProgress leftcircle" style="{{jfLeft}}" ></view></view></view>
+             <view  class="player-pause-box" >
+                 <view class="iconfont icon-bofang player-play"  style="padding-left: 4rpx;"></view>
+             </view>
+         </view>
+    </view >
+
+</template>

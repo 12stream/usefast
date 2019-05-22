@@ -1,0 +1,8 @@
+<view class="class_list">
+  <view class="class_item" wx:for="{{list_data}}">
+    item{{item}}
+  </view>
+  <view class="class_item class_item_end">
+    {{title}}
+  </view>
+</view>

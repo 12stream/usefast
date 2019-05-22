@@ -1,0 +1,102 @@
+<import src="../../common/player.wxml" />
+
+<view class="x-empty"  hidden="{{!conEmpty}}">
+    <view class="x-empty-box">
+        <view class="iconfont icon-yixue-kong x-empty-box-i"></view>
+        <view class="w1 x-empty-box-t">
+            你没有学习任何课程，赶紧去学习吧
+        </view>
+    </view>
+</view>
+
+
+    <block wx:if="{{nullInfo === true}}">
+        <view  class="lr-con">
+    <view class="lr-h1" hidden="{{!todayList.length}}">今天</view>
+            <view bindtap="playNow" data-isexist="{{item.isExist}}" data-subjectid="{{item.subject_id}}" data-label="{{item.l_title}}" data-audioId="{{item.audio_id}}" data-img="{{item.s_img}}" data-ti="{{item.title}}" data-index="{{index}}" wx:for="{{todayList}}" wx:key="item" class="lr-list-box  {{index==playIndex ? 'active':''}}">
+                <view class="lr-l-1">
+                    <view class="lr-l-bf iconfont  {{index==playIndex ? 'icon-bofangzhong':'icon-bofang'}}">
+
+                    </view>
+                </view>
+                <view class="lr-l-2">
+                    <view class="lr-l-t1 x-slh">{{item.title}}</view>
+                    <view class="lr-l-t2 x-slh">时长{{item.durationTime}}
+                        <text wx:if="{{item.jingdu!=100}}" class="pl28">播放至{{item.jingdu}}%</text>
+                        <text wx:else class="pl28">已播完</text>
+
+                    </view>
+                </view>
+                <view class="lr-l-3" id="xz" catchtap="openfenxiang" data-title="{{item.title}}"  data-audioId="{{item.audio_id}}" data-subjectId="{{item.subject_id}}">...</view>
+            </view>
+            <view class="lr-h1" hidden="{{!ztList.length}}">昨天</view>
+            <view wx:for="{{ztList}}" wx:key="item" bindtap="playNow" data-isExist="{{item.isExist}}" data-subjectid="{{item.subject_id}}" data-label="{{item.l_title}}" data-audioId="{{item.audio_id}}" data-img="{{item.s_img}}"  data-ti="{{item.title}}" data-index="{{todayList.length+index}}" class="lr-list-box {{(todayList.length+index)==playIndex ? 'active':''}}">
+                <view class="lr-l-1">
+                    <view class="lr-l-bf iconfont {{(todayList.length+index)==playIndex ? 'icon-bofangzhong':'icon-bofang'}}">
+
+                    </view>
+                </view>
+                <view class="lr-l-2">
+                    <view class="lr-l-t1 x-slh">{{item.title}}</view>
+                    <view class="lr-l-t2 x-slh">时长{{item.durationTime}}
+                        <text wx:if="{{item.jingdu!=100}}" class="pl28">播放至{{item.jingdu}}%</text>
+                        <text wx:else class="pl28">已播完</text>
+                    </view>
+                </view>
+                <view class="lr-l-3"  catchtap="openfenxiang" data-title="{{item.title}}" data-audioId="{{item.audio_id}}" data-subjectId="{{item.subject_id}}">...</view>
+            </view>
+            <view class="lr-h1" hidden="{{!gzList.length}}">更早</view>
+            <view wx:for="{{gzList}}" wx:key="item" bindtap="playNow" data-isExist="{{item.isExist}}" data-subjectid="{{item.subject_id}}" data-label="{{item.l_title}}" data-audioId="{{item.audio_id}}" data-img="{{item.s_img}}" data-ti="{{item.title}}" data-index="{{todayList.length+ztList.length+index}}" class="lr-list-box {{(todayList.length+ztList.length+index)==playIndex ? 'active':''}}">
+                <view class="lr-l-1">
+                    <view class="lr-l-bf iconfont {{(todayList.length+ztList.length+index)==playIndex ? 'icon-bofangzhong':'icon-bofang'}}">
+
+                    </view>
+                </view>
+                <view class="lr-l-2">
+                    <view class="lr-l-t1 x-slh">{{item.title}}</view>
+                    <view class="lr-l-t2 x-slh">时长{{item.durationTime}}
+                        <text wx:if="{{item.jingdu!=100}}" class="pl28">播放至{{item.jingdu}}%</text>
+                        <text wx:else class="pl28">已播完</text>
+                    </view>
+                </view>
+                <view class="lr-l-3"  catchtap="openfenxiang" data-title="{{item.title}}" data-audioId="{{item.audio_id}}" data-subjectId="{{item.subject_id}}">...</view>
+            </view>
+        </view>
+          <view class="complete" hidden="{{!loadingComplete}}">加载完了</view>
+          <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+              <view class="weui-loading"></view>
+              <view class="weui-loadmore__tips">正在加载</view>
+          </view>
+    </block>
+    <block wx:if="{{nullInfo === false}}">
+          <view class="course-box-null">
+              <label class="null-icon null-record iconfont icon-bofangjilu"></label>
+              <view class="null-p">你还没有播放任何音频</view>
+              <button class="null-btn" bindtap="otherInfo">去听听学农资讯</button>
+          </view>
+    </block>
+
+<view class="x-gd-bg" hidden="{{!fenxiang}}" style="z-index: 1000">
+    <view class="x-gd-b-box">
+        <view class="x-gd-b-con">
+            <button open-type="share" class="x-gd-ico-box">
+                <view class="x-gd-ico icon-fenxiang iconfont">
+
+                </view>
+                分享
+            </button>
+        </view>
+        <view class="x-gd-b-colse" bindtap="fenxiangColse">
+            取消
+        </view>
+    </view>
+</view>
+
+<view  class="x-tip-box" hidden="{{!tip}}">
+    <view class="x-tip">
+        该音频已下架
+    </view>
+</view>
+
+
+<template is="player" data="{{...item}}" />

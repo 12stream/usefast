@@ -1,0 +1,52 @@
+<import src="/assets/component/againLoading.wxml"/>
+<view class="x-empty"  hidden="{{!conEmpty}}">
+    <view class="x-empty-box">
+        <view class="iconfont icon-shoucang-kong x-empty-box-i"></view>
+        <view class="w1 x-empty-box-t">
+            你没有收藏任何课程，赶紧去收藏吧
+        </view>
+    </view>
+</view>
+
+<view>
+    <navigator wx:for="{{list}}"  wx:key="item" class="sc-boxL" url="../../deatil/courseDetails/courseDetails?subjectId={{item.id}}">
+        <view class="sc-box">
+            <image class="sc-img" src="{{item.s_img}}"></image>
+            <view class="sc-text">
+                <view class="sc-title x-slh">{{item.l_title}}</view>
+                <!--? item.name : "   "-->
+                <view class="sc-t2 grid"><view class="sc-t5" hidden="{{ item.name ? 0 : 1}}" >{{item.name}}</view><view class="sc-t4" hidden="{{ item.name ? 0 : 1}}">|</view> <view> 共{{item.sumCount}}节</view></view>
+                <view wx:if="{{!item.jd}}" class="sc-t3">尚未学习</view>
+                <view wx:elif="{{item.jd==100}}" class="sc-t3">已学完</view>
+                <view wx:else class="sc-t3">已学{{item.jd}}%</view>
+
+            </view>
+            <view class="lr-l-3"  catchtap="openfenxiang" data-index="{{index}}" data-title="{{item.l_title}}" data-subjectId="{{item.id}}">...</view>
+        </view>
+    </navigator>
+</view>
+<template is="againLoading" data="{{...againLoading}}"></template>
+
+
+<view class="x-gd-bg" hidden="{{!fenxiang}}" >
+    <view class="x-gd-b-box">
+        <view class="x-gd-b-con">
+            <view class="x-gd-ico-box" bindtap="shouc">
+                <view class="x-gd-ico icon-yixihuan iconfont" style="color:#ff6704">
+
+                </view>
+                取消收藏
+            </view>
+            <view>
+                <button open-type="share" class="x-gd-ico-box" style="line-height: 1.4;">
+                    <view class="x-gd-ico icon-fenxiang iconfont">
+                    </view>
+                    分享
+                </button>
+            </view>
+        </view>
+        <view class="x-gd-b-colse" bindtap="fenxiangColse">
+            取消
+        </view>
+    </view>
+</view>

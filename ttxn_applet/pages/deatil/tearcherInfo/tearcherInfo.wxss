@@ -1,0 +1,106 @@
+/* tearcherInfo.wxss */
+
+.li-banner {
+    height: 240rpx;
+}
+.li-banner image{height:100%;width:100%;}
+.li-container {
+    padding: 0 32rpx;
+}
+
+.li-top {
+    display: flex;
+    height: 88rpx;
+    line-height: 88rpx;
+    justify-content: flex-start;
+}
+
+.headImg image {
+    width: 148rpx;
+    height: 148rpx;
+    border-radius: 8rpx;
+}
+
+.tip-describe {
+    font-size: 28rpx;
+    text-align: left;
+    color: #999;
+    height: 88rpx;
+    line-height: 88rpx;
+}
+
+.line-g {
+    height: 1rpx;
+    /* width: 750rpx; */
+    /* margin-left: -30rpx; */
+    background-color: #ddd;
+}
+
+.headImg {
+    width: 150rpx;
+    height: 150rpx;
+    background-color: white;
+    border-radius: 8rpx;
+    position: relative;
+    top: -71rpx;
+    text-align: center;
+    padding: 5rpx;
+}
+
+.empty-one {
+    height: 24rpx;
+    background-color: #f4f4f4;
+    width: 750rpx;
+    margin-left: -32rpx;
+}
+
+.headImg-word {
+    font-size: 34rpx;
+    color: #333;
+    margin-left: 30rpx;
+    font-weight:bold;
+
+}
+
+.introduce {
+    font-size: 30rpx;
+    color: #666;
+    line-height: 1.47;
+    margin-top: 10rpx;
+    padding-bottom:30rpx;
+
+}
+
+.list-course {
+    margin-top: 24rpx;
+    padding-bottom: 20rpx;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1rpx solid #e5e5e5;
+    /* width: 718rpx; */
+}
+
+.list-l image {
+    width: 117rpx;
+    height: 146rpx;
+}
+
+.list-r {
+    margin-left: 23rpx;line-height:1.5;
+
+}
+
+.list-r-t {
+    font-size: 34rpx;
+    font-weight: bold;
+    color: #333;
+    display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 1;
+overflow: hidden;
+}
+
+.list-r-m, .list-r-b {
+    font-size: 26rpx;
+    color: #999;
+}

@@ -1,0 +1,55 @@
+@import "../../common/player.wxss";
+page{
+  background-color: #f4f4f4;
+}
+.listen-box{
+  position: relative;
+  width: 622rpx; 
+  margin: 120rpx auto 0;
+  padding-bottom: 0;
+}
+.listen-box .h1{
+  font-size: 56rpx;
+  font-weight: bold;
+  text-align: left;
+  color: #333;
+}
+.listen-box .p1{
+  font-size: 28rpx;
+  font-weight: 500;
+  text-align: left;
+  color: #666;
+  margin: 24rpx 0 40rpx;
+}
+.listen-box .listen-li{
+  position: relative;
+  height: 200rpx;
+  line-height: 200rpx;
+  border-radius: 16rpx;
+  background-color: #fff;
+  box-shadow: 0 0 24rpx 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 24rpx;
+}
+.list-right-jt{
+  position: absolute;
+  top: 50%;
+  right: 40rpx;
+  display: inline-block;
+  width: 17rpx;
+  height: 30rpx;
+  background: url(../../../assets/images/right-b-icon.png) no-repeat;
+  background-size: contain;
+  margin-top: -15rpx;
+}
+  .listen-box .list-min text{
+    font-size: 130rpx;
+    color: #ff6704;
+    padding-left: 40rpx;
+  }
+  .listen-box .list-num{
+    font-size: 28rpx;
+    letter-spacing: -1.7rpx;
+    text-align: left;
+    color: #666;
+    margin-left: 15rpx;
+  }

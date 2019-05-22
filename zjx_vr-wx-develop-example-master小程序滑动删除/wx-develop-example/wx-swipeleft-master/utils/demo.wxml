@@ -1,0 +1,3 @@
+<template name="objectCombine">
+  <view wx:for="[0,1,2,3]">你好{{index}}</view>
+</template>

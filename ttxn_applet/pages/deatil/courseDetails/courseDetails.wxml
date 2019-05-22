@@ -1,0 +1,314 @@
+<import src="../../common/player.wxml" />
+<!-- xxx.wxml -->
+
+<import src="../../../assets/wxParse/wxParse.wxml" />
+<import src="/assets/component/load.wxml"/>
+<import src="/assets/component/tip.wxml"/>
+
+
+<view class="xz" style="padding-bottom: {{paddBott}};">
+    <view class="v-banner">
+        <view class="shadow-box"></view>
+        <image class="banner" src="{{l_img}}">
+            <view class="cd-b-text">
+                <view class=" x-slh f40 ft-n ">{{l_title}}</view>
+                <view class=" x-slh f28">{{s_title}}</view>
+            </view>
+        </image>
+    </view>
+    <!-- <view wx:if="{{!current_price}}" class="cd-gm-box mb24">
+        <view hidden="{{!hideMoneyBox}}" class="cd-gm1">
+                 <div class="db f28 g9">{{times}}次收听</div>
+        </view>
+        <view hidden="{{!hideMoneyBox}}">
+            <div class="f28 g9">免费</div>
+            <div class="x-btn-md x-btn-yj ml24" bindtap="startPlayBtn">开始听</div>
+        </view>
+    </view>
+
+    <view wx:elif="{{isBuy == 1}}" class="cd-gm-box mb24">
+        <view hidden="{{!hideMoneyBox}}" class="cd-gm1">
+            <div class="db f28 g9">{{times}}次收听</div>
+        </view>
+        <view hidden="{{!hideMoneyBox}}">
+            <div class="f28 g9">已购买</div>
+            <div class="x-btn-md x-btn-yj ml24" bindtap="startPlayBtn">开始听</div>
+        </view>
+    </view>
+    <!--="{{isBuy == ''}}"-->
+    <!-- <view wx:else class="cd-gm-box mb24">
+        <view hidden="{{!hideMoneyBox}}" class="cd-gm1" style="padding-right: 0;">
+            <div class="db"><span class="f30 primary b">￥<span class="f40">{{current_price}}</span></span> <span class="f26 g9 x-scx pl8">￥{{original_price}}</span></div>
+            <div class="db f24 pt4 pl8 g9">{{times}}次收听</div>
+        </view>
+        <view hidden="{{!hideMoneyBox}}" class="x-flex">
+            <div class="x-btn-md x-btn-x x-btn-yj" bindtap="playTest">免费试听</div>
+            <div class="x-btn-md x-btn-yj ml24" bindtap="buyAlertBtn">立即购买</div>
+        </view>
+    </view> -->
+
+
+    <!-- <view class="{{isFixed==true?'show':'no-show'}}" style="height:88rpx;position:fixed;z-index:998;top:-1rpx;"></view> -->
+    <navigator url="../tearcherInfo/tearcherInfo?tearch_id={{list[0].teacher_id}}">
+        <view class="info-cursor">
+            <image src="{{head1_img}}" class="person-img"></image>
+            <text class="who-speak">{{teacher_name ? teacher_name : ''}}</text>
+            <view class="r iconfont icon-jiantou f24 mr24">
+            </view>
+        </view>
+    </navigator>
+    <view class="cursor-info">
+        <view class="cursor-info-left">{{list[0].subjects}}节课/时长: {{durations}}</view>
+        <view class="cursor-info-right">{{list[0].times  ? list[0].times  : '0'}}人已学</view>
+    </view>
+    <!-- <view class="x-b-title " id="target-fixed">
+        课程简介
+    </view> -->
+    <view style="background-color: #f4f4f4;height: 24rpx;"></view>
+    <view class="nav-fixed show " style="margin-top: 9rpx;{{filter_op}} ">
+        <view class="half-1 {{state_nav==0?'lesson-on':''}}" catchtap="productLesson">
+            <view class="nav-son" >课程简介</view>
+        </view>
+        <view class="half-1 {{state_nav!=0?'lesson-on':''}}" catchtap="contentLesson">
+            <view class="nav-son" >课程内容</view>
+        </view>
+    </view>
+    <!--<text class="cd-text {{state_nav==0?'':'none'}}">-->
+        <!--&lt;!&ndash;{{content ? content : ""}}&ndash;&gt;-->
+    <!--</text>-->
+    <!--   -->
+    <view class="cd-text {{state_nav==0?'':'none'}} ">
+        <template is="wxParse" data="{{wxParseData:insertData.nodes}}" />
+    </view>
+
+    <!-- <div class="x-b-title mt24" id="lesson-content">
+        课程内容
+    </div> -->
+    <view class="bgwh x-list-con {{state_nav!=0?'':'none'}}">
+        <!--{{item.playState=='已播完' ? 'finish' : ''}}-->
+        <block wx:if="{{!current_price}}">
+            <view wx:for="{{list}}" wx:key="item" data-sign="{{index}}" data-ti="{{item.title}}" data-id="{{item.infoId}}" data-img="{{item.s_img}}" class="sl x-list-box {{sign==index ? 'active':''}}  {{item.audio_status=='1' ? 'finish' : ''}} {{item.infoId == playId ? 'active': ''}}"
+                bindtap="playNow">
+
+                <div class="x-list-text">
+                    <div class="x-list-t1 x-flex x-align ">
+                        <!-- <div class="cd-st {{item.audio_status=='1' ? '' : 'x-hide'}}">试听</div>-->
+                        <div class="x-slh">{{item.title}}</div>
+
+                    </div>
+                    <view class="song-info">
+                        <div class="x-list-ico iconfont icon-bofang" style="border:none;"></div>
+                        <text class="bf-many">{{item.audio_times ? item.audio_times  : '0'}}人已学</text> <text class="sum-time">{{item.duration}}</text>
+                    </view>
+                    <div class="x-list-time">
+                        <!--<div class="x-list-t-t1 ">{{item.create_time ? item.create_time : 0}} <span class="pl32">{{item.duration  ? item.duration : 0}}</span></div>-->
+                        <div class="x-list-t-t2 " wx:if="{{item.playState == '已播完'}}">{{item.playState}}</div>
+                    </div>
+                </div>
+            </view>
+        </block>
+
+        <block wx:elif="{{isBuy === 0}}">
+            <view wx:for="{{list}}" wx:key="item" data-sign="{{index}}" class="sl x-list-box {{sign==index ? 'active':''}}  {{item.audio_status=='1' ? 'finish' : ''}} {{item.infoId == playId ? 'active': ''}}" bindtap="{{item.audio_status=='1' ? 'playTest' : 'buyAlertBtn'}}">
+
+                <div class="x-list-text">
+                    <div class="x-list-t1 x-flex x-align ">
+                        <div class="cd-st {{item.audio_status=='1' ? '' : 'x-hide'}}">试听</div>
+                        <div class="x-slh">{{item.title}}</div>
+                    </div>
+                    <view class="song-info">
+                        <div class="x-list-ico iconfont icon-bofang" style="border:none;"></div>
+                        <text class="bf-many">{{item.audio_times}}次学习</text> <text class="sum-time">{{item.duration}}</text>
+                    </view>
+                    <div class="x-list-time">
+                        <!--<div class="x-list-t-t1 ">{{item.create_time ? item.create_time : 0}} <span class="pl32">{{item.duration  ? item.duration : 0}}</span></div>-->
+                        <div class="x-list-t-t2 " wx:if="{{item.playState == '已播完'}}">{{item.playState}}</div>
+                    </div>
+                </div>
+            </view>
+        </block>
+
+        <block wx:else>
+            <view wx:for="{{list}}" wx:key="item" data-sign="{{index}}" data-ti="{{item.title}}" data-id="{{item.infoId}}" data-img="{{item.s_img}}" class="sl x-list-box {{sign==index ? 'active':''}}  {{item.audio_status=='1' ? 'finish' : ''}} {{item.infoId == playId ? 'active': ''}}"
+                bindtap="playNow">
+
+                <div class="x-list-text">
+                    <div class="x-list-t1 x-flex x-align ">
+                        <div class="cd-st {{item.audio_status=='1' ? '' : 'x-hide'}}">试听</div>
+                        <div class="x-slh">{{item.title}}</div>
+                    </div>
+                    <div class="song-info">
+                        <div class="x-list-ico iconfont icon-bofang" style="border:none;"></div>
+                        <text class="bf-many">{{item.audio_times}}次学习</text> <text class="sum-time">{{item.duration}}</text>
+                    </div>
+                    <div class="x-list-time">
+                        <!--<div class="x-list-t-t1 ">{{item.create_time ? item.create_time : 0}} <span class="pl32">{{item.duration  ? item.duration : 0}}</span></div>-->
+                        <div class="x-list-t-t2 " wx:if="{{item.playState == '已播完'}}">{{item.playState}}</div>
+                    </div>
+                </div>
+            </view>
+        </block>
+
+    </view>
+    <view class="empty-98"></view>
+    <!--底部导航开始-->
+    <!--免费-->
+    <block wx:if="{{current_price==0}}">
+        <view class="fixed-use">
+            <view class="flex-1">
+                <navigator url="../emptyComment/emptyComment?subjectId={{subjectId}}&isEmpty={{many_remark}}">
+                    <view class="share btn-ico">
+                        <view class="lh1">
+                        </view>
+                        <view class="font-b   btn-share  iconfont icon-pinglun pl-father  xf-1" >
+                            <text class="xf-2">评论</text>
+
+                            <text class="pl-son"  hidden="{{!many_remark}}">{{many_remark}}</text>
+                        </view>
+                    </view>
+                </navigator>
+                <view class="collect btn-ico" bindtap="ifLove">
+                    <view class="lh1"><label class="iconfont icon-xihuan sc {{isCollect==1?'icon-yixihuan':'icon-xihuan'}}"></label></view>
+                    <block wx:if="{{isCollect}}">
+                        <view class="font-b ">已收藏</view>
+                    </block>
+                    <block wx:else>
+                        <view class="font-b ">收藏</view>
+                    </block>
+                </view>
+                <view class="share btn-ico" bindtap="shareOn">
+                    <view class="lh1">
+                        <!-- <label class="iconfont icon-fenxiang fx"></label> -->
+                    </view>
+                    <button class="font-b   btn-share  iconfont icon-fenxiang fx  xf-1" open-type="share"> 
+                       <text class="xf-2">分享</text> 
+                    </button>
+                </view>
+            </view>
+            <view class="flex-3" catchtap="startPlayBtn">开始学习</view>
+        </view>
+    </block>
+    <!-- 收费--//未购买  -->
+    <!--<block wx:elif="{{isBuy==0}}">-->
+        <!--<view class="fixed-use">-->
+            <!--<view class="flex-1">-->
+                <!--<view class="collect btn-ico" bindtap="ifLove">-->
+                    <!--<view class="lh1"><label class="iconfont icon-xihuan sc {{isCollect==1?'icon-yixihuan':'icon-xihuan'}}"></label></view>-->
+                    <!--<block wx:if="{{isCollect}}">-->
+                        <!--<view class="font-b ">已收藏</view>-->
+                    <!--</block>-->
+                    <!--<block wx:else>-->
+                        <!--<view class="font-b ">收藏2</view>-->
+                    <!--</block>-->
+                <!--</view>-->
+                <!--<view class="share btn-ico" bindtap="shareOn">-->
+                    <!--<view class="lh1">-->
+                        <!--&lt;!&ndash; <label class="iconfont icon-fenxiang fx"></label> &ndash;&gt;-->
+                    <!--</view>-->
+                    <!--<button class="font-b   btn-share  iconfont icon-fenxiang fx  xf-1" open-type="share">-->
+                       <!--<text class="xf-2">分享2</text>-->
+                    <!--</button>-->
+                <!--</view>-->
+            <!--</view>-->
+            <!--&lt;!&ndash;能否试听&ndash;&gt;-->
+            <!--<view class="flex-2" catchtap="playTest" hidden="{{tryListen==true?false:true}}">免费试听 </view>-->
+            <!--<view class="flex-3" bindtap="buyAlertBtn">购买¥ <text>{{now_price}}</text> </view>-->
+        <!--</view>-->
+    <!--</block>-->
+    <!--<block wx:else>-->
+        <!--&lt;!&ndash; //已购买 &ndash;&gt;-->
+        <!--<view class="fixed-use">-->
+            <!--<view class="flex-1">-->
+                <!--<view class="collect btn-ico" bindtap="ifLove">-->
+                    <!--<view class="lh1"><label class="iconfont  sc {{isCollect==true?'icon-yixihuan':'icon-xihuan'}}"></label></view>-->
+                    <!--<block wx:if="{{isCollect}}">-->
+                        <!--<view class="font-b ">已收藏</view>-->
+                    <!--</block>-->
+                    <!--<block wx:else>-->
+                        <!--<view class="font-b ">收藏3</view>-->
+                    <!--</block>-->
+                <!--</view>-->
+                <!--<view class="share btn-ico" bindtap="shareOn">-->
+                    <!--<button class="font-b   btn-share  iconfont icon-fenxiang fx  xf-1" open-type="share" style="margin-top:17rpx!important;">-->
+                       <!--<text class="xf-2">分享3</text>-->
+                    <!--</button>-->
+                <!--</view>-->
+            <!--</view>-->
+            <!--&lt;!&ndash; <view class="flex-3" catchtap="playNow">开始学习</view> &ndash;&gt;-->
+
+            <!--<view class="flex-3" catchtap="startPlayBtn">开始学习</view>-->
+        <!--</view>-->
+    <!--</block>-->
+
+    <div class="cd-alert-lbox {{showAlert ? '':'x-hide-i'}}" hidden="">
+        <div class="cd-alert">
+            <div class="cd-alert-con">
+                <div class="cd-al-con">
+                    <div class="cd-al-title">
+                        <image src="{{s_img}}" class="x-al-img">
+
+                        </image>
+                        <div class="x-slh cd-al-t-text">
+                            {{l_title}}
+                        </div>
+                    </div>
+                    此课程为付费课程，需要购买才能继续播放
+                </div>
+            </div>
+            <div class="cd-alert-footer">
+                <div class="x-btn-md x-btn-x x-btn-yjs" bindtap="alertColse">下次再说</div>
+
+            </div>
+        </div>
+    </div>
+</view>
+<!--课程兑换码-->
+
+<view class="cd-dh-box" hidden="{{!dhm}}">
+    <form bindsubmit="sendCode" bindreset="formReset">
+        <view class="cd-dh-boxs">
+            <view class="cd-dh-d1">
+                <view class="cd-dh-d1-t">课程兑换码</view>
+                <view class="rel">
+                    <input class="cd-dh-d1-input" type="number" name="input" placeholder="请输入兑换码获取课程" placeholder-style="color:#B5B5B6"/>
+                    <view class="abc" style="top: 85rpx;right: 20rpx;color:#FF6704;display: inline-block;font-size:26rpx;">{{codeMsg}}</view>
+                </view>
+                <view style="padding-top: 48rpx;">
+                    <view class="iconfont2 icon-wt dib mr16 gb f32"></view>如何获取兑换码
+                </view>
+                <view class="fix" style="line-height: 1;padding-top: 10rpx;padding-bottom: 40rpx;">
+                    <view class="iconfont2 icon-huida dib mr16 gb f32 l"></view>
+                    <view class="l">
+                        <view>1.加以下<span class="cd-dh-green">微信</span>号</view>
+                        <view style="padding-top: 10rpx;">2.回复关键词“兑换码”</view>
+                    </view>
+                </view>
+                <view class="cd-dh-d2">
+                    <view style="width: 78rpx;">
+                        <view class="iconfont2 icon-wx dib mr16 gb" style="color:#51C300;font-size:80rpx;"></view>
+                    </view>
+                    <view class="ch-dh-t2">
+                        <view>{{WeChat}}</view>
+                        <view class="cd-dh-t-green" hidden="{{!dhfz}}">已复制</view>
+                    </view>
+                    <view style="padding-top: 16rpx;">
+                        <view class="ch-dh-btn3" bindtap="copyWeChat">
+                            复 制
+                        </view>
+                    </view>
+
+                </view>
+            </view>
+            <view class="ch-dh-btn-box">
+                <view class="ch-dh-btn" bindtap="closeCodeAlert">
+                    取 消
+                </view>
+                <button class="ch-dh-btn ch-dh-btn2" formType="submit">确 定</button>
+            </view>
+        </view>
+    </form>
+</view>
+
+<template is="xLoad" data="{{xLoad}}"></template>
+<template is="player" data="{{...item}}" />
+<template is="tip" data="{{...tip}}" />

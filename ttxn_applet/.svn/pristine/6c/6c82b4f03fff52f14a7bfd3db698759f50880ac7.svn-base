@@ -1,0 +1,207 @@
+/* emptyComment.wxss */
+
+.pl-foot {
+    height: 97rpx;
+    position: fixed;
+    bottom: 0;
+    line-height: 97rpx;
+    text-align: center;
+    width: 100%;
+    font-size: 34rpx;
+    color: #ff6704;
+    background-color: #fff;
+    border-bottom: 0rpx solid #ccc;
+    border-top: 1rpx solid #ccc;
+    z-index: 99;
+}
+
+.pl-container {
+    min-height: 1200rpx;
+    background-color: #f4f4f4;
+}
+
+.bg-image {
+    padding-top: 150rpx;
+    text-align: center;
+}
+
+.bg-image image {
+    width: 200rpx;
+    height: 200rpx;
+    margin: 0 auto;
+}
+
+.bg-image text {
+    display: block;
+    font-size: 32rpx;
+    margin-top: 30rpx;
+    text-align: center;
+    color: #666;
+}
+
+/* 弹框开始  */
+
+.box-shadow {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.3;
+    top: 0;
+}
+
+.textarea {
+    min-height: 200rpx;
+    max-height: 480rpx;
+    overflow-y: auto;
+    width: 100%;
+    padding: 25rpx 5rpx;
+}
+
+.wrap-top {
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.wrap-textare {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    background-color: white;
+     top: 180rpx; 
+}
+
+.tips {
+    text-align: right;
+    padding-right: 20rpx;
+}
+
+.fb {
+    color: #ff6704;
+    font-size: 30rpx;
+    margin-right: 32rpx;
+}
+
+.gb {
+    margin-left: 32rpx;
+    font-size:32rpx;
+    color:#999999;
+
+}
+
+/* //没有评论 */
+
+.has-remark {
+    padding: 24rpx 0 120rpx 32rpx;
+}
+
+.wr {
+    display: flex;
+}
+
+.four-line {
+    /* position:relative;
+    display: -webkit-box;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4; */
+    margin-top: 31rpx;
+    line-height: 1.5;
+    position: relative;
+    height: auto;
+}
+
+.four-line .pull-c {
+    display: inline-block;
+}
+
+.pull-c {
+    position: absolute;
+    bottom: 0rpx;
+    right: -5rpx;
+    transition: all 0.2s linear 0s;
+    width: 50rpx;
+    height: 50rpx;
+    background-color: white;
+    text-align: center;
+    line-height: 50rpx;
+    transform: rotate(-90deg);
+}
+
+.remark-l {
+    width: 72rpx;
+    height: 72rpx;
+}
+
+.tra-rorate {
+    transform: rotate(90deg);
+}
+
+.auto-h {
+    height: auto !important;
+}
+
+.remark-l image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.reply-comment {
+    position: relative;
+    margin-top: 40rpx;
+    background-color: #f4f4f4;
+    padding: 24rpx 24rpx 24rpx 17rpx;
+    color: #919191;
+    line-height: 1.5;
+}
+
+.remark-r {
+    width: 650rpx;
+    font-size: 28rpx;
+    color: #333;
+    margin-left: 16rpx;
+    text-align: left;
+    padding-right: 32rpx;
+    border-bottom: 1rpx solid #f5f5f5;
+    padding-bottom: 32rpx;
+    padding-top: 24rpx;
+}
+
+.wt-time {
+    color: #999;
+    font-size: 24rpx;
+}
+
+.reply-l {
+    color: #000;
+}
+
+.th-angle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20rpx solid #f4f4f4;
+    top: -16rpx;
+}
+
+.re-content {
+    margin-top: 31rpx;
+    line-height: 1.5;
+    position: relative;
+    max-height: 160rpx;
+    overflow: hidden;
+}
+
+.show-all {
+    text-align: center;
+    font-size: 30rpx;
+    padding: 10rpx;
+    color: #333;
+}

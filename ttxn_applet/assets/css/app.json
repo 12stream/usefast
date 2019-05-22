@@ -1,0 +1,57 @@
+{
+    "pages": [
+        "pages/scroll/scroll",
+        "pages/index/index",
+        "pages/list/courseList/courseList",
+        "pages/deatil/courseDetails/courseDetails",
+        "pages/deatil/playAudio/playAudio",
+        "pages/my/my/my",
+        "pages/my/purchaseContent/purchaseContent",
+        "pages/my/myinfo/myinfo",
+        "pages/my/collect/collect",
+        "pages/listen/voluntaryListening2/voluntaryListening2",
+        "pages/my/modifyPhone/modifyPhone",
+        "pages/list/informationList/informationList",
+        "pages/listen/listen/listen",
+        "pages/my/purchaseRecord/purchaseRecord",
+        "pages/my/learningRecord/learningRecord",
+        "pages/activity/activity4/activity4",
+        "pages/activity/activity3/activity3",
+        "pages/activity/activity2/activity2",
+        "pages/activity/activity/activity"    
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "天天学农",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": false
+    },
+    "tabBar": {
+        "borderStyle": "black",
+        "color": "#999",
+        "selectedColor": "#ff6704",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "学知识",
+                "iconPath": "assets/images/study.png",
+                "selectedIconPath": "assets/images/study-selected.png"
+            },
+            {
+                "pagePath": "pages/listen/listen/listen",
+                "text": "随意听",
+                "iconPath": "assets/images/listen.png",
+                "selectedIconPath": "assets/images/listen-selected.png"
+            },
+            {
+                "pagePath": "pages/my/my/my",
+                "text": "我的",
+                "iconPath": "assets/images/my.png",
+                "selectedIconPath": "assets/images/my-selected.png"
+            }
+        ]
+    },
+    "debug": false
+}

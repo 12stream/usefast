@@ -1,0 +1,49 @@
+<!--没有评论的时候-->
+<view wx:if="{{isEmpty==0}}" class="pl-container">
+    <view class="bg-image">
+        <image src="../test-image/empty-remark.png"></image>
+        <text>该课程暂无评论，快来说两句吧</text>
+    </view>
+
+</view>
+<!--有评论的时候-->
+
+    <view wx:else class="has-remark">
+        <view  wx:for="{{dataArr}}" wx:key="item" class="wr">
+            <view class="remark-l">
+                <image src="{{item.head_img}}"></image>
+            </view>
+            <view class="remark-r">
+                <view class="re-top tr-name"> {{item.name}}</view>
+                <view class="re-mid wt-time">{{item.commentTime}}</view>
+                <view class="re-btm  {{item.toTop!=true?'four-line auto-h':'re-content'}}" id="ele_{{index}}">
+                     {{item.content}}
+                      <view  hidden="{{item.isHide!=false?true:false}}" class="  pull-c {{item.toTop!=true?'tra-rorate':''}}" bindtap="controlTb"  data-id="ele_{{index}}"  data-idx="{{index}}">
+                          <text class="iconfont icon-jiantou"></text>
+                      </view>
+                </view>
+                <view class="reply-comment " hidden="{{item.reply==null?true:false}}">
+                    <view class="th-angle"></view>
+                    <text class="reply-l">专家回复：</text> {{item.reply}}
+                </view>
+            </view>
+        </view>
+         <view class="show-all" hidden="{{isComplete==true?false:true}}"> --已显示全部评论-- </view>
+    </view>
+<!--弹框-->
+<view class="congirm-box" hidden="{{isHide}}">
+    <view class="box-shadow"></view>
+    <view class="wrap-textare">
+        <view class="wrap-top">
+            <text class="iconfont icon-guanbi gb" bindtap="hideBox"></text>
+            <text class="fb" bindtap="pubLish">发表</text>
+        </view>
+        <textarea bindfocus="Focus" bindblur="Blur" fixed="true"  bindinput="Input" placeholder="最多输入150字" class="textarea" focus='{{!isHide}}' maxlength="150" />
+        <view class="tips">{{length_str}}/150</view>
+    </view>
+</view>
+
+
+<view class="pl-foot" bindtap="startComment">
+    <text class="iconfont icon-xiepinglun write-pl"></text> <text>写评论</text>
+</view>

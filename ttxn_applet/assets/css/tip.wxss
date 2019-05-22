@@ -1,0 +1,17 @@
+.x-tip-box{
+    position: fixed;
+    top: 50vh;
+    text-align: center;
+    width: 100%;
+    margin-top:-100rpx;
+    z-index: 900;
+}
+.x-tip{
+    display: inline-block;
+    background-color: rgba(0,0,0,0.65);
+    color:#fff;
+    font-size:24rpx;
+    text-align: center;
+    padding: 16rpx 20rpx;
+    border-radius: 12rpx;
+}

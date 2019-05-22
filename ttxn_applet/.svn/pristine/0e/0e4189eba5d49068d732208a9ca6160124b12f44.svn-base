@@ -1,0 +1,31 @@
+/**app.wxss**/
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.course-box-null{position: relative;margin-top: 160rpx;padding: 0 135rpx;}
+.null-icon{display: block;width: 200rpx;margin: 0 auto;text-align:center;}
+.null-p{font-size: 32rpx;text-align: center;color: #666;margin: 40rpx auto;}
+.null-btn{height: 88rpx;line-height: 88rpx;color: #fff;background: #ff6704;border-color: #ff6704;}
+.null-record{height: 200rpx;line-height:200rpx;border-radius: 50%;}
+.null-courese{height: 168rpx;line-height:168rpx;}
+.null-record.iconfont{color: #e6e6e6;font-size: 200rpx;}
+.null-courese.iconfont{color: #e6e6e6;font-size: 168rpx;}
+.complete{position: relative;width: 335rpx;height: 36rpx;line-height: 36rpx;margin: 40rpx auto 20rpx auto;font-size: 28rpx;letter-spacing: -0.3px;color: #999;text-align: center;}
+.complete:before {content: "";position: absolute;pointer-events: none;background-color: #ccc;height: 1rpx;left: 0;right: 50%;top: 50%;margin-right: 60rpx;z-index: 1;}
+.complete:after {content: "";position: absolute;pointer-events: none; background-color: #ccc;height: 1rpx;right: 0;left: 50%;top: 50%;margin-left: 60rpx;z-index: 1;}
+.show{display:flex!important}
+.no-show{display:none!important}
+/*Grid*/
+@import "assets/css/grid.wxss";
+@import "assets/css/btn.wxss";
+@import "assets/css/ico.wxss";
+@import "assets/css/form.wxss";
+@import "assets/css/text.wxss";
+@import "assets/css/load.wxss";
+@import "assets/css/list.wxss";
+@import "assets/css/empty.wxss";
+
+@import "assets/css/modal.wxss";
+@import "assets/css/gengduo.wxss";
+@import "assets/css/jc.wxss";
+@import "assets/css/tip.wxss";
+
+

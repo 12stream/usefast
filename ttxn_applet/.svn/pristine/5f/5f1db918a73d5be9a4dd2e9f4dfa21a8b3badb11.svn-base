@@ -1,0 +1,23 @@
+
+    <block wx:if="{{nullInfo === true}}">
+      <!--<loading hidden="{{loadingHidden}}">-->
+                <!--加载中...-->
+        <!--</loading>-->
+        <view class="pc-con">
+          <navigator  url="../../deatil/courseDetails/courseDetails?id={{item.id}}" wx:for="{{buyContentList}}" wx:key="item" wx:for-index="rdIndex" >
+              <div class="pc-lest">
+                  <image class="pc-img" src="{{item.s_img}}"></image>
+                  <div class="pc-text x-slh">
+                      {{item.l_title}}
+                  </div>
+              </div>
+            </navigator >
+        </view>
+    </block>
+    <block wx:if="{{nullInfo === false}}">
+          <view class="course-box-null">
+              <label class="null-icon null-courese iconfont icon-xuezhishi"></label>
+              <view class="null-p">你还没有购买课程</view>
+              <button class="null-btn" bindtap="otherCourse">去看看有哪些课程</button>
+          </view>
+    </block>

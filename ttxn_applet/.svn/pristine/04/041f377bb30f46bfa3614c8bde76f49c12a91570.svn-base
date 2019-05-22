@@ -1,0 +1,72 @@
+@import "../../common/player.wxss";
+
+/*v0.3*/
+.lr-list-box{
+    display: flex;
+    margin-left: 32rpx;
+    border-bottom:1px solid #e5e5e5;
+    font-size: 12px;
+    height: 124rpx;
+    align-items: center;
+}
+.lr-l-1{
+    width: 56rpx;
+}
+.lr-l-2{
+    padding-left: 24rpx;
+    width: 590rpx;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.lr-l-3{
+    font-size:50rpx;
+    color:#ccc;
+    height: 100rpx;
+    /*vertical-align: bottom;*/
+    display: flex;
+    line-height: 120rpx;
+}
+.lr-l-t1{
+    font-size:32rpx;
+    color:#333;
+    width: 590rpx;
+}
+.active .lr-l-t1{
+    color:#ff6704;
+}
+.lr-l-t2{
+    font-size:28rpx;
+    color:#999;
+    padding-top: 10rpx;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+.lr-l-3{
+    flex: 1;
+}
+.lr-l-bf{
+    width: 56rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    padding-left: 17rpx;
+    border:2rpx solid #ccc;
+    color:#ccc;
+    border-radius: 50%;
+    font-size:24rpx;
+    box-sizing: border-box;
+}
+.lr-h1{
+    font-size:34rpx;
+    padding-left:34rpx;
+    line-height:80rpx;
+    height: 80rpx;
+    font-weight: bold;
+    border-bottom:1rpx solid #e5e5e5;
+    color:#333;
+}
+button:after{
+    content: none;
+}
